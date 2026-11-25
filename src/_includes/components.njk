@@ -2,35 +2,33 @@
   Reusable components. Import in a page with:
   {% import "components.njk" as ui %}
   Photos are placeholders (class "ph") until the school supplies real images.
+  Writing rules for all copy: docs/voice.md
 #}
 
 {% macro photo(label, cls="") %}
 <div class="ph {{ cls }}" role="img" aria-label="{{ label }}"><span>{{ label }}</span></div>
 {% endmacro %}
 
-{% macro eyebrow(text) %}{% if text %}<p class="eyebrow">{{ text }}</p>{% endif %}{% endmacro %}
-
-{# Inner-page banner: photo background, eyebrow + title #}
-{% macro pageBanner(eyebrowText, title, photoLabel) %}
+{# Inner-page banner: breadcrumb + title over a photo. `crumb` = parent section name (optional). #}
+{% macro pageBanner(crumb, title, photoLabel, homeLabel="Beranda", homeUrl="/") %}
 <section class="page-banner">
   <div class="ph page-banner-photo" role="img" aria-label="{{ photoLabel }}"><span>{{ photoLabel }}</span></div>
   <div class="container page-banner-inner">
-    {{ eyebrow(eyebrowText) }}
+    <p class="crumbs"><a href="{{ homeUrl }}">{{ homeLabel }}</a>{% if crumb and crumb != title %} <span aria-hidden="true">/</span> {{ crumb }}{% endif %}</p>
     <h1>{{ title }}</h1>
   </div>
 </section>
 {% endmacro %}
 
 {# Image + text block. Body comes from {% call %}. #}
-{% macro split(eyebrowText, title, photoLabel, reverse=false, btnText="", btnUrl="") %}
+{% macro split(title, photoLabel, reverse=false, btnText="", btnUrl="") %}
 <section class="section">
   <div class="container split{% if reverse %} split--reverse{% endif %}">
     <div class="split-media">{{ photo(photoLabel, "ph--tall") }}</div>
     <div class="split-body">
-      {{ eyebrow(eyebrowText) }}
-      <h2>{{ title }}</h2>
+      {% if title %}<h2>{{ title }}</h2>{% endif %}
       {{ caller() }}
-      {% if btnText %}<a class="btn btn--gold" href="{{ btnUrl }}">{{ btnText }}</a>{% endif %}
+      {% if btnText %}<a class="text-link" href="{{ btnUrl }}">{{ btnText }}</a>{% endif %}
     </div>
   </div>
 </section>
@@ -48,40 +46,43 @@
 </div>
 {% endmacro %}
 
-{# Feature cards with icon letter #}
-{% macro featureCards(items) %}
-<div class="feature-grid">
-  {% for f in items %}
-  <article class="feature-card">
-    <span class="feature-icon" aria-hidden="true">{{ f.icon }}</span>
-    <h3>{{ f.title }}</h3>
-    <p>{{ f.text }}</p>
-  </article>
+{# Plain list of items with a title and a sentence each. Used instead of icon cards. #}
+{% macro itemList(items) %}
+<dl class="item-list">
+  {% for i in items %}
+  <div class="item"><dt>{{ i.title }}</dt><dd>{{ i.text }}</dd></div>
   {% endfor %}
-</div>
+</dl>
 {% endmacro %}
 
-{# Testimonial slider #}
-{% macro testimonials(heading, items) %}
-<section class="section testimonials" data-slider>
-  <div class="container testimonials-inner">
-    <h2>{{ heading }}</h2>
-    <div class="testimonial-track">
-      {% for q in items %}
-      <figure class="testimonial{% if loop.first %} is-active{% endif %}" data-slide>
-        <blockquote>{{ q.quote }}</blockquote>
-        <figcaption>
-          <span class="avatar" aria-hidden="true">{{ q.name | first }}</span>
-          <span><strong>{{ q.name }}</strong><small>{{ q.role }}</small></span>
-        </figcaption>
-      </figure>
-      {% endfor %}
-    </div>
-    <div class="slider-dots">
-      {% for q in items %}<button type="button" class="dot{% if loop.first %} is-active{% endif %}" aria-label="{{ loop.index }}" data-dot="{{ loop.index0 }}"></button>{% endfor %}
-    </div>
-  </div>
-</section>
+{# Practical facts parents look for first: label above, value below #}
+{% macro facts(items) %}
+<dl class="facts">
+  {% for f in items %}
+  <div class="fact"><dt>{{ f.label }}</dt><dd>{{ f.value }}</dd>{% if f.note %}<small>{{ f.note }}</small>{% endif %}</div>
+  {% endfor %}
+</dl>
+{% endmacro %}
+
+{# A school day: time + what happens #}
+{% macro day(items) %}
+<ol class="day">
+  {% for d in items %}
+  <li><time>{{ d.time }}</time><div><strong>{{ d.title }}</strong>{% if d.text %}<p>{{ d.text }}</p>{% endif %}</div></li>
+  {% endfor %}
+</ol>
+{% endmacro %}
+
+{# Parent quotes, all visible at once (no carousel) #}
+{% macro quotes(items) %}
+<div class="quotes">
+  {% for q in items %}
+  <figure class="quote">
+    <blockquote>{{ q.quote }}</blockquote>
+    <figcaption><strong>{{ q.name }}</strong><small>{{ q.role }}</small></figcaption>
+  </figure>
+  {% endfor %}
+</div>
 {% endmacro %}
 
 {# FAQ accordion using native <details> #}

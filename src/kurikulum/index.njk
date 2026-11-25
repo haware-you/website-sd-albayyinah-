@@ -3,43 +3,32 @@ slug: /kurikulum/
 copy:
   id:
     title: Kurikulum
-    eyebrow: Kurikulum
-    banner: Kurikulum yang Seimbang antara Ilmu dan Iman
-    introTitle: Kurikulum nasional, diperkaya program keislaman
-    intro: "[ISI] Paragraf tentang pendekatan kurikulum sekolah: bagaimana kurikulum nasional dipadukan dengan program keislaman setiap hari."
-    advTitle: Keunggulan Pembelajaran
-    advantages: [Pembelajaran berpusat pada siswa, Proyek dan pengalaman nyata, Pembiasaan ibadah harian, Laporan perkembangan yang jelas untuk orang tua]
-    hubTitle: Jelajahi Kurikulum
+    introTitle: Dua jalur dalam satu jadwal
+    intro:
+      - "Pelajaran umum mengikuti Kurikulum Merdeka dari Kemendikdasmen, sama seperti SD negeri. Di sampingnya, anak punya jam khusus untuk Al-Qur'an dan praktik ibadah setiap hari."
+      - "[ISI] Berapa jam per minggu untuk pelajaran umum dan berapa untuk program keislaman."
     cards:
       - { title: "Kurikulum Merdeka", url: "/kurikulum/nasional/", photo: "Foto: kelas" }
-      - { title: "Program Keislaman", url: "/kurikulum/keislaman/", photo: "Foto: tahfidz" }
-      - { title: "Penilaian & Rapor", url: "/kurikulum/penilaian/", photo: "Foto: guru dan siswa" }
+      - { title: "Program keislaman", url: "/kurikulum/keislaman/", photo: "Foto: tahfidz" }
+      - { title: "Penilaian dan rapor", url: "/kurikulum/penilaian/", photo: "Foto: rapor" }
   en:
     title: Curriculum
-    eyebrow: Curriculum
-    banner: A Curriculum That Balances Knowledge and Faith
-    introTitle: The national curriculum, enriched with Islamic programmes
-    intro: "[FILL] A paragraph about the school's curriculum approach: how the national curriculum is combined with daily Islamic programmes."
-    advTitle: How We Teach
-    advantages: [Student-centred learning, Projects and real-world experience, Daily worship habits, Clear progress reports for parents]
-    hubTitle: Explore the Curriculum
+    introTitle: Two tracks in one timetable
+    intro:
+      - "Regular subjects follow Kurikulum Merdeka, Indonesia's national curriculum, the same as state primary schools. Alongside it, children have daily time set aside for the Qur'an and prayer."
+      - "[FILL] Hours per week for regular subjects and for the Islamic programme."
     cards:
-      - { title: "National Curriculum", url: "/kurikulum/nasional/", photo: "Photo: classroom" }
-      - { title: "Islamic Programme", url: "/kurikulum/keislaman/", photo: "Photo: tahfidz" }
-      - { title: "Assessment & Reports", url: "/kurikulum/penilaian/", photo: "Photo: teacher and student" }
+      - { title: "National curriculum", url: "/kurikulum/nasional/", photo: "Photo: classroom" }
+      - { title: "Islamic programme", url: "/kurikulum/keislaman/", photo: "Photo: tahfidz" }
+      - { title: "Assessment and reports", url: "/kurikulum/penilaian/", photo: "Photo: report card" }
 ---
 {% import "components.njk" as ui %}
-{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": kegiatan kelas") }}
+{{ ui.pageBanner("", c.title, t.photo[lang] + ": kegiatan kelas", t.home[lang], '/' | langUrl(lang)) }}
 
-{% call ui.split("", c.introTitle, t.photo[lang] + ": siswa belajar") %}
-  <p>{{ c.intro }}</p>
-  <p><strong>{{ c.advTitle }}</strong></p>
-  <ul>{% for a in c.advantages %}<li>{{ a }}</li>{% endfor %}</ul>
+{% call ui.split(c.introTitle, t.photo[lang] + ": anak belajar di kelas") %}
+  {% for p in c.intro %}<p>{{ p }}</p>{% endfor %}
 {% endcall %}
 
 <section class="section section--mint">
-  <div class="container">
-    <div class="section-head"><h2>{{ c.hubTitle }}</h2></div>
-    {{ ui.cardGrid(c.cards, lang) }}
-  </div>
+  <div class="container">{{ ui.cardGrid(c.cards, lang) }}</div>
 </section>

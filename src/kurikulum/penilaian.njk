@@ -2,41 +2,44 @@
 slug: /kurikulum/penilaian/
 copy:
   id:
-    title: Penilaian & Rapor
-    eyebrow: Kurikulum
-    banner: Penilaian & Rapor
-    introTitle: Memantau perkembangan setiap anak
-    intro: "[ISI] Paragraf tentang cara sekolah menilai kemajuan siswa, baik akademik maupun keislaman."
-    stepsTitle: Bagaimana Kami Menilai
-    steps:
-      - { title: "Penilaian harian", text: "[ISI] Observasi dan tugas di kelas." }
-      - { title: "Penilaian tengah dan akhir semester", text: "[ISI] Bentuk dan jadwal." }
-      - { title: "Ujian hafalan (tasmi')", text: "[ISI] Bagaimana hafalan diuji." }
-      - { title: "Rapor & pertemuan orang tua", text: "[ISI] Frekuensi rapor dan konsultasi dengan wali kelas." }
+    title: Penilaian dan rapor
+    crumb: Kurikulum
+    intro: "Orang tua menerima dua jenis laporan: rapor pelajaran umum dan laporan hafalan. [ISI] Cek dan sesuaikan."
+    head: [Apa, Kapan, Orang tua menerima]
+    rows:
+      - ["Tugas dan penilaian harian", "Setiap pekan", "[ISI] Misalnya lewat buku penghubung atau grup WhatsApp kelas"]
+      - ["Penilaian tengah semester", "[ISI bulan]", "[ISI]"]
+      - ["Rapor akhir semester", "[ISI bulan]", "Rapor tertulis dan pertemuan dengan wali kelas"]
+      - ["Ujian hafalan (tasmi')", "[ISI]", "[ISI] Laporan hafalan per surat"]
+    meetTitle: Bertemu wali kelas
+    meet: "[ISI] Berapa kali setahun ada pertemuan orang tua, dan bagaimana cara minta bertemu di luar jadwal."
   en:
-    title: Assessment & Reports
-    eyebrow: Curriculum
-    banner: Assessment & Reports
-    introTitle: Tracking every child's progress
-    intro: "[FILL] A paragraph on how the school assesses student progress, both academic and Islamic."
-    stepsTitle: How We Assess
-    steps:
-      - { title: "Daily assessment", text: "[FILL] Observation and class tasks." }
-      - { title: "Mid- and end-of-semester assessment", text: "[FILL] Format and schedule." }
-      - { title: "Memorisation test (tasmi')", text: "[FILL] How memorisation is tested." }
-      - { title: "Reports & parent meetings", text: "[FILL] Report frequency and homeroom consultations." }
+    title: Assessment and reports
+    crumb: Curriculum
+    intro: "Parents get two kinds of report: an academic report and a memorisation report. [FILL] Check and adjust."
+    head: [What, When, Parents receive]
+    rows:
+      - ["Classwork and daily assessment", "Weekly", "[FILL] E.g. via a communication book or class WhatsApp group"]
+      - ["Mid-semester assessment", "[FILL month]", "[FILL]"]
+      - ["End-of-semester report", "[FILL month]", "Written report and a meeting with the class teacher"]
+      - ["Memorisation test (tasmi')", "[FILL]", "[FILL] Report per surah"]
+    meetTitle: Meeting the class teacher
+    meet: "[FILL] How many parent meetings a year, and how to ask for one outside that schedule."
 ---
 {% import "components.njk" as ui %}
-{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": guru dan siswa") }}
+{{ ui.pageBanner(c.crumb, c.title, t.photo[lang] + ": guru dan orang tua", t.home[lang], '/' | langUrl(lang)) }}
 
-{% call ui.split("", c.introTitle, t.photo[lang] + ": konsultasi orang tua", true) %}
-  <p>{{ c.intro }}</p>
-{% endcall %}
-
-<section class="section section--mint">
-  <div class="container" style="max-width:860px">
-    <div class="section-head"><h2>{{ c.stepsTitle }}</h2></div>
-    <ol class="steps">{% for s in c.steps %}<li><h3>{{ s.title }}</h3><p>{{ s.text }}</p></li>{% endfor %}</ol>
+<section class="section">
+  <div class="container">
+    <div class="section-head"><p class="lead">{{ c.intro }}</p></div>
+    <div class="table-wrap">
+      <table class="info-table">
+        <thead><tr>{% for h in c.head %}<th>{{ h }}</th>{% endfor %}</tr></thead>
+        <tbody>{% for r in c.rows %}<tr><td><strong>{{ r[0] }}</strong></td><td>{{ r[1] }}</td><td>{{ r[2] }}</td></tr>{% endfor %}</tbody>
+      </table>
+    </div>
+    <h2 style="margin-top:56px">{{ c.meetTitle }}</h2>
+    <p class="prose">{{ c.meet }}</p>
   </div>
 </section>
 

@@ -2,18 +2,17 @@
 slug: /ppdb/faq/
 copy:
   id:
-    title: Tanya Jawab (FAQ)
-    eyebrow: PPDB
-    banner: Pertanyaan yang Sering Diajukan
-    more: Pertanyaan Anda belum terjawab?
+    title: Pertanyaan umum
+    crumb: Pendaftaran
+    more: Pertanyaan Anda tidak ada di sini?
     items:
       - { q: "Kapan pendaftaran dibuka?", a: "[ISI]" }
       - { q: "Berapa usia minimal masuk kelas 1?", a: "[ISI]" }
       - { q: "Apakah ada tes masuk?", a: "[ISI] Observasi kesiapan, bukan tes seleksi akademik (sesuaikan)." }
       - { q: "Berapa jumlah siswa per kelas?", a: "[ISI]" }
-      - { q: "Berapa target hafalan Al-Qur'an?", a: "Lihat halaman Program Keislaman. [ISI]" }
+      - { q: "Berapa target hafalan Al-Qur'an?", a: "Lihat halaman Program keislaman. [ISI]" }
       - { q: "Apakah anak yang belum bisa membaca Al-Qur'an bisa mendaftar?", a: "[ISI]" }
-      - { q: "Jam berapa sekolah dimulai dan selesai?", a: "Lihat halaman Kalender Akademik. [ISI]" }
+      - { q: "Jam berapa sekolah dimulai dan selesai?", a: "Lihat halaman Kalender akademik. [ISI]" }
       - { q: "Apakah ada antar-jemput?", a: "[ISI]" }
       - { q: "Apakah sekolah menyediakan makan siang?", a: "[ISI]" }
       - { q: "Apa saja kegiatan ekstrakurikuler?", a: "[ISI]" }
@@ -23,18 +22,17 @@ copy:
       - { q: "Bagaimana komunikasi sekolah dengan orang tua?", a: "[ISI]" }
       - { q: "Apakah ada pendampingan untuk anak berkebutuhan khusus?", a: "[ISI]" }
   en:
-    title: FAQ
-    eyebrow: Admissions
-    banner: Frequently Asked Questions
-    more: Still have a question?
+    title: Common questions
+    crumb: Admissions
+    more: Question not listed here?
     items:
       - { q: "When does registration open?", a: "[FILL]" }
       - { q: "What is the minimum age for Grade 1?", a: "[FILL]" }
       - { q: "Is there an entrance test?", a: "[FILL] A readiness observation, not an academic selection test (adjust)." }
       - { q: "How many students are in a class?", a: "[FILL]" }
-      - { q: "What are the Qur'an memorisation targets?", a: "See the Islamic Programme page. [FILL]" }
+      - { q: "What are the Qur'an memorisation targets?", a: "See the Islamic programme page. [FILL]" }
       - { q: "Can a child who cannot yet read the Qur'an apply?", a: "[FILL]" }
-      - { q: "What are the school hours?", a: "See the Academic Calendar page. [FILL]" }
+      - { q: "What are the school hours?", a: "See the Academic calendar page. [FILL]" }
       - { q: "Is school transport available?", a: "[FILL]" }
       - { q: "Does the school provide lunch?", a: "[FILL]" }
       - { q: "What extracurricular activities are offered?", a: "[FILL]" }
@@ -45,12 +43,12 @@ copy:
       - { q: "Is support available for children with special needs?", a: "[FILL]" }
 ---
 {% import "components.njk" as ui %}
-{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": orang tua dan guru") }}
+{{ ui.pageBanner(c.crumb, c.title, t.photo[lang] + ": orang tua dan guru", t.home[lang], '/' | langUrl(lang)) }}
 
 <section class="section">
   <div class="container">
     {{ ui.faq(c.items) }}
-    <div class="section-head" style="margin-top:56px;margin-bottom:0">
+    <div style="margin-top:56px">
       <h3>{{ c.more }}</h3>
       <a class="btn btn--gold" href="{{ '/kontak/' | langUrl(lang) }}#tanya">{{ t.chatWa[lang] }}</a>
     </div>

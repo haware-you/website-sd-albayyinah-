@@ -2,58 +2,56 @@
 slug: /tentang/guru-staf/
 copy:
   id:
-    title: Guru & Staf
-    eyebrow: Tentang Kami
-    banner: Guru & Staf
-    introTitle: Pendidik yang berkompeten dan berakhlak
-    intro: "[ISI] Paragraf tentang kualifikasi guru, pelatihan rutin, dan pendekatan mengajar."
-    leaderTitle: Pimpinan Sekolah
-    teacherTitle: Guru Kelas & Mata Pelajaran
+    title: Guru dan staf
+    crumb: Tentang kami
+    introTitle: Siapa yang mengajar anak Anda
+    intro: "[ISI] Fakta tentang guru: berapa orang, latar pendidikan (misalnya S1 PGSD), berapa yang hafal Al-Qur'an, pelatihan apa yang diikuti tahun ini."
+    leaderTitle: Pimpinan sekolah
+    teacherTitle: Wali kelas dan guru mata pelajaran
     leaders:
-      - { name: "[ISI Nama]", role: "Kepala Sekolah" }
-      - { name: "[ISI Nama]", role: "Wakil Kepala Bidang Kurikulum" }
-      - { name: "[ISI Nama]", role: "Wakil Kepala Bidang Kesiswaan" }
-      - { name: "[ISI Nama]", role: "Koordinator Program Keislaman" }
+      - { name: "[ISI Nama]", role: "Kepala sekolah" }
+      - { name: "[ISI Nama]", role: "Wakil kepala, kurikulum" }
+      - { name: "[ISI Nama]", role: "Wakil kepala, kesiswaan" }
+      - { name: "[ISI Nama]", role: "Koordinator tahfidz" }
     teachers:
-      - { name: "[ISI Nama]", role: "Wali Kelas 1" }
-      - { name: "[ISI Nama]", role: "Wali Kelas 2" }
-      - { name: "[ISI Nama]", role: "Wali Kelas 3" }
-      - { name: "[ISI Nama]", role: "Wali Kelas 4" }
-      - { name: "[ISI Nama]", role: "Wali Kelas 5" }
-      - { name: "[ISI Nama]", role: "Wali Kelas 6" }
-      - { name: "[ISI Nama]", role: "Guru Tahfidz" }
-      - { name: "[ISI Nama]", role: "Guru PJOK" }
+      - { name: "[ISI Nama]", role: "Wali kelas 1" }
+      - { name: "[ISI Nama]", role: "Wali kelas 2" }
+      - { name: "[ISI Nama]", role: "Wali kelas 3" }
+      - { name: "[ISI Nama]", role: "Wali kelas 4" }
+      - { name: "[ISI Nama]", role: "Wali kelas 5" }
+      - { name: "[ISI Nama]", role: "Wali kelas 6" }
+      - { name: "[ISI Nama]", role: "Guru tahfidz" }
+      - { name: "[ISI Nama]", role: "Guru olahraga" }
   en:
-    title: Teachers & Staff
-    eyebrow: About Us
-    banner: Teachers & Staff
-    introTitle: Competent educators with good character
-    intro: "[FILL] A paragraph about teacher qualifications, regular training, and teaching approach."
-    leaderTitle: School Leadership
-    teacherTitle: Class & Subject Teachers
+    title: Teachers and staff
+    crumb: About
+    introTitle: Who teaches your child
+    intro: "[FILL] Facts about the teachers: how many, their qualifications (e.g. teaching degree), how many have memorised the Qur'an, training they attended this year."
+    leaderTitle: School leadership
+    teacherTitle: Class and subject teachers
     leaders:
       - { name: "[FILL Name]", role: "Principal" }
-      - { name: "[FILL Name]", role: "Vice Principal, Curriculum" }
-      - { name: "[FILL Name]", role: "Vice Principal, Student Affairs" }
-      - { name: "[FILL Name]", role: "Islamic Programme Coordinator" }
+      - { name: "[FILL Name]", role: "Vice principal, curriculum" }
+      - { name: "[FILL Name]", role: "Vice principal, student affairs" }
+      - { name: "[FILL Name]", role: "Tahfidz coordinator" }
     teachers:
-      - { name: "[FILL Name]", role: "Grade 1 Homeroom" }
-      - { name: "[FILL Name]", role: "Grade 2 Homeroom" }
-      - { name: "[FILL Name]", role: "Grade 3 Homeroom" }
-      - { name: "[FILL Name]", role: "Grade 4 Homeroom" }
-      - { name: "[FILL Name]", role: "Grade 5 Homeroom" }
-      - { name: "[FILL Name]", role: "Grade 6 Homeroom" }
-      - { name: "[FILL Name]", role: "Tahfidz Teacher" }
-      - { name: "[FILL Name]", role: "Physical Education" }
+      - { name: "[FILL Name]", role: "Grade 1 class teacher" }
+      - { name: "[FILL Name]", role: "Grade 2 class teacher" }
+      - { name: "[FILL Name]", role: "Grade 3 class teacher" }
+      - { name: "[FILL Name]", role: "Grade 4 class teacher" }
+      - { name: "[FILL Name]", role: "Grade 5 class teacher" }
+      - { name: "[FILL Name]", role: "Grade 6 class teacher" }
+      - { name: "[FILL Name]", role: "Tahfidz teacher" }
+      - { name: "[FILL Name]", role: "PE teacher" }
 ---
 {% import "components.njk" as ui %}
-{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": guru bersama siswa") }}
+{{ ui.pageBanner(c.crumb, c.title, t.photo[lang] + ": guru di kelas", t.home[lang], '/' | langUrl(lang)) }}
 
 <section class="section">
   <div class="container">
     <div class="section-head">
       <h2>{{ c.introTitle }}</h2>
-      <p class="lead">{{ c.intro }}</p>
+      <p>{{ c.intro }}</p>
     </div>
     <h3>{{ c.leaderTitle }}</h3>
     <div class="people-grid" style="margin-bottom:56px">

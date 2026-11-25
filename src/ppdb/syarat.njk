@@ -2,41 +2,53 @@
 slug: /ppdb/syarat/
 copy:
   id:
-    title: Syarat Dokumen
-    eyebrow: PPDB
-    banner: Syarat Dokumen
-    introTitle: Dokumen yang perlu disiapkan
-    intro: "[ISI] Sesuaikan daftar dengan persyaratan sekolah."
-    ageNote: "[ISI] Usia minimal calon siswa kelas 1 per [ISI tanggal]. Cek aturan usia SD terbaru dari Kemendikdasmen."
+    title: Syarat dokumen
+    crumb: Pendaftaran
+    intro: "Siapkan fotokopi dokumen berikut. Bawa juga aslinya saat menyerahkan, untuk dicocokkan. [ISI] Sesuaikan dengan syarat sekolah."
     docs:
-      - "Fotokopi akta kelahiran"
-      - "Fotokopi Kartu Keluarga"
-      - "Fotokopi KTP kedua orang tua"
-      - "Pas foto anak [ISI ukuran dan jumlah]"
-      - "Surat keterangan TK / PAUD (jika ada)"
-      - "[ISI] Untuk siswa pindahan: rapor terakhir dan surat pindah"
+      - "Akta kelahiran anak"
+      - "Kartu Keluarga"
+      - "KTP ayah dan ibu"
+      - "Pas foto anak, [ISI ukuran], [ISI] lembar"
+      - "Ijazah atau surat keterangan TK, jika ada"
+    transferTitle: Untuk siswa pindahan
+    transfer:
+      - "Rapor terakhir"
+      - "Surat pindah dari sekolah asal"
+      - "[ISI] Dokumen lain"
+    ageNote: "[ISI] Usia minimal kelas 1 per [ISI tanggal]. Cek aturan usia SD terbaru dari Kemendikdasmen."
   en:
-    title: Required Documents
-    eyebrow: Admissions
-    banner: Required Documents
-    introTitle: Documents to prepare
-    intro: "[FILL] Adjust this list to the school's requirements."
-    ageNote: "[FILL] Minimum age for Grade 1 as of [FILL date]. Check the Ministry's latest primary school age rule."
+    title: Documents needed
+    crumb: Admissions
+    intro: "Prepare copies of the documents below and bring the originals so we can check them. [FILL] Adjust to the school's requirements."
     docs:
-      - "Copy of birth certificate"
-      - "Copy of Family Card (Kartu Keluarga)"
-      - "Copy of both parents' ID cards (KTP)"
-      - "Child's passport photo [FILL size and number]"
-      - "Kindergarten / preschool certificate (if any)"
-      - "[FILL] For transfer students: latest report card and transfer letter"
+      - "Child's birth certificate"
+      - "Family Card (Kartu Keluarga)"
+      - "Both parents' ID cards (KTP)"
+      - "Child's passport photo, [FILL size], [FILL] copies"
+      - "Kindergarten certificate or letter, if any"
+    transferTitle: For transfer students
+    transfer:
+      - "Latest report card"
+      - "Transfer letter from the previous school"
+      - "[FILL] Other documents"
+    ageNote: "[FILL] Minimum age for grade 1 as of [FILL date]. Check the Ministry's latest primary school age rule."
 ---
 {% import "components.njk" as ui %}
-{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": berkas pendaftaran") }}
+{{ ui.pageBanner(c.crumb, c.title, t.photo[lang] + ": berkas pendaftaran", t.home[lang], '/' | langUrl(lang)) }}
 
-{% call ui.split("", c.introTitle, t.photo[lang] + ": orang tua mendaftar", true) %}
-  <p>{{ c.intro }}</p>
-  <ul>{% for d in c.docs %}<li>{{ d }}</li>{% endfor %}</ul>
-  <p class="note">{{ c.ageNote }}</p>
-{% endcall %}
+<section class="section">
+  <div class="container split" style="align-items:start">
+    <div class="split-body">
+      <p class="lead">{{ c.intro }}</p>
+      <ul>{% for d in c.docs %}<li>{{ d }}</li>{% endfor %}</ul>
+      <p class="note">{{ c.ageNote }}</p>
+    </div>
+    <div class="split-body">
+      <h2>{{ c.transferTitle }}</h2>
+      <ul>{% for d in c.transfer %}<li>{{ d }}</li>{% endfor %}</ul>
+    </div>
+  </div>
+</section>
 
 {% include "partials/prevnext.njk" %}

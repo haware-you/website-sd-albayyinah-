@@ -2,62 +2,70 @@
 slug: /tentang/profil/
 copy:
   id:
-    title: Profil, Visi & Misi
-    eyebrow: Tentang Kami
-    banner: Mengenal SD Al Bayyinah
-    introTitle: Sekolah dasar Islam untuk generasi yang berilmu dan berakhlak
-    intro: "[ISI] Sejarah singkat sekolah dalam 1 sampai 2 paragraf: tahun berdiri, yayasan, dan perkembangan hingga hari ini."
+    title: Profil sekolah
+    crumb: Tentang kami
+    historyTitle: Sejarah singkat
+    history:
+      - "[ISI] Kapan dan oleh siapa sekolah ini didirikan, dan mengapa. Contoh yang baik: \"Didirikan tahun 20xx oleh Yayasan ... karena belum ada SD Islam di kecamatan ini.\""
+      - "[ISI] Bagaimana sekolah berkembang sampai sekarang: jumlah kelas, gedung, perubahan penting."
+    factsTitle: Data sekolah
+    factsHead: [Data, Keterangan]
+    facts:
+      - ["Nama resmi", "[ISI]"]
+      - ["Yayasan", "[ISI]"]
+      - ["Tahun berdiri", "[ISI]"]
+      - ["Jumlah siswa", "[ISI] siswa, [ISI] rombongan belajar"]
+      - ["Akreditasi", "[ISI] (lihat halaman Akreditasi dan izin)"]
+      - ["Alamat", "[ISI]"]
     visionTitle: Visi
-    vision: "[ISI] Visi sekolah."
+    vision: "[ISI] Visi resmi sekolah, ditulis apa adanya."
     missionTitle: Misi
-    missions: ["[ISI] Misi pertama.", "[ISI] Misi kedua.", "[ISI] Misi ketiga.", "[ISI] Misi keempat."]
-    valuesTitle: Nilai-Nilai Kami
-    values:
-      - { icon: "I", title: "Iman", text: "[ISI] Penjelasan singkat nilai." }
-      - { icon: "Il", title: "Ilmu", text: "[ISI] Penjelasan singkat nilai." }
-      - { icon: "Ak", title: "Akhlak", text: "[ISI] Penjelasan singkat nilai." }
-      - { icon: "Am", title: "Amal", text: "[ISI] Penjelasan singkat nilai." }
+    missions: ["[ISI] Misi pertama.", "[ISI] Misi kedua.", "[ISI] Misi ketiga."]
   en:
-    title: Profile, Vision & Mission
-    eyebrow: About Us
-    banner: Getting to Know SD Al Bayyinah
-    introTitle: An Islamic primary school for a knowledgeable, well-mannered generation
-    intro: "[FILL] A short history of the school in 1 to 2 paragraphs: year founded, foundation, and growth to today."
+    title: School profile
+    crumb: About
+    historyTitle: A short history
+    history:
+      - "[FILL] When and by whom the school was founded, and why. A good example: \"Founded in 20xx by the ... Foundation because the district had no Islamic primary school.\""
+      - "[FILL] How the school has grown since: number of classes, buildings, key changes."
+    factsTitle: School data
+    factsHead: [Item, Details]
+    facts:
+      - ["Official name", "[FILL]"]
+      - ["Foundation", "[FILL]"]
+      - ["Year founded", "[FILL]"]
+      - ["Students", "[FILL] students in [FILL] classes"]
+      - ["Accreditation", "[FILL] (see Accreditation and licences)"]
+      - ["Address", "[FILL]"]
     visionTitle: Vision
-    vision: "[FILL] The school's vision."
+    vision: "[FILL] The school's official vision statement, word for word."
     missionTitle: Mission
-    missions: ["[FILL] First mission.", "[FILL] Second mission.", "[FILL] Third mission.", "[FILL] Fourth mission."]
-    valuesTitle: Our Values
-    values:
-      - { icon: "I", title: "Faith (Iman)", text: "[FILL] Short explanation." }
-      - { icon: "Il", title: "Knowledge (Ilmu)", text: "[FILL] Short explanation." }
-      - { icon: "Ak", title: "Character (Akhlak)", text: "[FILL] Short explanation." }
-      - { icon: "Am", title: "Good deeds (Amal)", text: "[FILL] Short explanation." }
+    missions: ["[FILL] First mission.", "[FILL] Second mission.", "[FILL] Third mission."]
 ---
 {% import "components.njk" as ui %}
-{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": gedung sekolah") }}
+{{ ui.pageBanner(c.crumb, c.title, t.photo[lang] + ": gedung sekolah", t.home[lang], '/' | langUrl(lang)) }}
 
-{% call ui.split("", c.introTitle, t.photo[lang] + ": suasana sekolah") %}
-  <p>{{ c.intro }}</p>
+{% call ui.split(c.historyTitle, t.photo[lang] + ": foto lama sekolah, jika ada") %}
+  {% for p in c.history %}<p>{{ p }}</p>{% endfor %}
 {% endcall %}
 
 <section class="section section--mint">
-  <div class="container split">
+  <div class="container split" style="align-items:start">
     <div>
-      <p class="eyebrow">{{ c.visionTitle }}</p>
-      <h2>{{ c.vision }}</h2>
+      <h2>{{ c.factsTitle }}</h2>
+      <div class="table-wrap">
+        <table class="info-table">
+          <thead><tr>{% for h in c.factsHead %}<th>{{ h }}</th>{% endfor %}</tr></thead>
+          <tbody>{% for r in c.facts %}<tr><td><strong>{{ r[0] }}</strong></td><td>{{ r[1] }}</td></tr>{% endfor %}</tbody>
+        </table>
+      </div>
     </div>
     <div>
-      <p class="eyebrow">{{ c.missionTitle }}</p>
-      <ol class="steps">{% for m in c.missions %}<li><p>{{ m }}</p></li>{% endfor %}</ol>
+      <h2>{{ c.visionTitle }}</h2>
+      <p class="lead">{{ c.vision }}</p>
+      <h2 style="margin-top:32px">{{ c.missionTitle }}</h2>
+      <ol class="prose">{% for m in c.missions %}<li>{{ m }}</li>{% endfor %}</ol>
     </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-head"><h2>{{ c.valuesTitle }}</h2></div>
-    {{ ui.featureCards(c.values) }}
   </div>
 </section>
 

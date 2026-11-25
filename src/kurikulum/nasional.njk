@@ -3,75 +3,74 @@ slug: /kurikulum/nasional/
 copy:
   id:
     title: Kurikulum Merdeka
-    eyebrow: Kurikulum
-    banner: Kurikulum Merdeka untuk Kelas 1 sampai 6
-    introTitle: Belajar sesuai tahap perkembangan anak
-    intro: "[ISI] Paragraf tentang penerapan Kurikulum Merdeka di sekolah. Catatan: cek nama dan struktur kurikulum terbaru dari Kemendikdasmen sebelum terbit."
-    phaseTitle: Fase Pembelajaran
+    crumb: Kurikulum
+    intro: "Kurikulum Merdeka membagi SD menjadi tiga fase. Setiap fase punya target kemampuan yang sama di seluruh Indonesia. [ISI] Tambahkan apa yang sekolah lakukan berbeda, misalnya pembelajaran berbasis proyek setiap semester. Catatan: cek nama dan struktur kurikulum terbaru dari Kemendikdasmen sebelum terbit."
+    phaseTitle: Tiga fase di SD
+    tableHead: [Fase, Kelas, Fokus di sekolah kami]
     phases:
-      - { phase: "Fase A", grades: "Kelas 1 - 2", focus: "[ISI] Fokus: literasi dan numerasi dasar." }
-      - { phase: "Fase B", grades: "Kelas 3 - 4", focus: "[ISI] Fokus pembelajaran." }
-      - { phase: "Fase C", grades: "Kelas 5 - 6", focus: "[ISI] Fokus pembelajaran." }
-    tableHead: [Fase, Kelas, Fokus]
-    subjectTitle: Mata Pelajaran
+      - { phase: "Fase A", grades: "Kelas 1 dan 2", focus: "[ISI] Contoh: membaca lancar dan berhitung sampai 100." }
+      - { phase: "Fase B", grades: "Kelas 3 dan 4", focus: "[ISI]" }
+      - { phase: "Fase C", grades: "Kelas 5 dan 6", focus: "[ISI]" }
+    subjectTitle: Mata pelajaran
+    subjectHead: [Mata pelajaran, Jam per minggu]
     subjects:
-      - { icon: "PAI", title: "Pendidikan Agama Islam" }
-      - { icon: "PP", title: "Pendidikan Pancasila" }
-      - { icon: "BI", title: "Bahasa Indonesia" }
-      - { icon: "M", title: "Matematika" }
-      - { icon: "IP", title: "IPAS" }
-      - { icon: "PJ", title: "PJOK" }
-      - { icon: "S", title: "Seni & Budaya" }
-      - { icon: "EN", title: "Bahasa Inggris" }
-      - { icon: "AR", title: "Bahasa Arab" }
+      - ["Pendidikan Agama Islam", "[ISI]"]
+      - ["Pendidikan Pancasila", "[ISI]"]
+      - ["Bahasa Indonesia", "[ISI]"]
+      - ["Matematika", "[ISI]"]
+      - ["IPAS (mulai kelas 3)", "[ISI]"]
+      - ["PJOK", "[ISI]"]
+      - ["Seni dan budaya", "[ISI]"]
+      - ["Bahasa Inggris", "[ISI]"]
+      - ["Bahasa Arab", "[ISI]"]
   en:
-    title: National Curriculum
-    eyebrow: Curriculum
-    banner: Kurikulum Merdeka for Grades 1 to 6
-    introTitle: Learning that fits each stage of a child's development
-    intro: "[FILL] A paragraph on how the school applies Indonesia's Kurikulum Merdeka. Note: confirm the latest curriculum name and structure from the Ministry before publishing."
-    phaseTitle: Learning Phases
+    title: National curriculum
+    crumb: Curriculum
+    intro: "Kurikulum Merdeka splits primary school into three phases. Each phase has the same learning targets across Indonesia. [FILL] Add what the school does differently, such as a project each semester. Note: confirm the latest curriculum name and structure with the Ministry before publishing."
+    phaseTitle: Three phases in primary school
+    tableHead: [Phase, Grades, Focus at our school]
     phases:
-      - { phase: "Phase A", grades: "Grades 1 - 2", focus: "[FILL] Focus: early literacy and numeracy." }
-      - { phase: "Phase B", grades: "Grades 3 - 4", focus: "[FILL] Learning focus." }
-      - { phase: "Phase C", grades: "Grades 5 - 6", focus: "[FILL] Learning focus." }
-    tableHead: [Phase, Grades, Focus]
+      - { phase: "Phase A", grades: "Grades 1 and 2", focus: "[FILL] E.g. fluent reading and counting to 100." }
+      - { phase: "Phase B", grades: "Grades 3 and 4", focus: "[FILL]" }
+      - { phase: "Phase C", grades: "Grades 5 and 6", focus: "[FILL]" }
     subjectTitle: Subjects
+    subjectHead: [Subject, Hours per week]
     subjects:
-      - { icon: "PAI", title: "Islamic Religious Education" }
-      - { icon: "PP", title: "Pancasila Education" }
-      - { icon: "BI", title: "Indonesian" }
-      - { icon: "M", title: "Mathematics" }
-      - { icon: "IP", title: "Science & Social Studies (IPAS)" }
-      - { icon: "PJ", title: "Physical Education" }
-      - { icon: "S", title: "Arts & Culture" }
-      - { icon: "EN", title: "English" }
-      - { icon: "AR", title: "Arabic" }
+      - ["Islamic Religious Education", "[FILL]"]
+      - ["Pancasila Education (civics)", "[FILL]"]
+      - ["Indonesian", "[FILL]"]
+      - ["Mathematics", "[FILL]"]
+      - ["Science and social studies (IPAS, from grade 3)", "[FILL]"]
+      - ["Physical education", "[FILL]"]
+      - ["Arts", "[FILL]"]
+      - ["English", "[FILL]"]
+      - ["Arabic", "[FILL]"]
 ---
 {% import "components.njk" as ui %}
-{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": kelas") }}
-
-{% call ui.split("", c.introTitle, t.photo[lang] + ": siswa kelas 1") %}
-  <p>{{ c.intro }}</p>
-{% endcall %}
-
-<section class="section section--mint">
-  <div class="container">
-    <div class="section-head"><h2>{{ c.phaseTitle }}</h2></div>
-    <div class="table-wrap">
-      <table class="info-table">
-        <thead><tr>{% for h in c.tableHead %}<th>{{ h }}</th>{% endfor %}</tr></thead>
-        <tbody>{% for p in c.phases %}<tr><td><strong>{{ p.phase }}</strong></td><td>{{ p.grades }}</td><td>{{ p.focus }}</td></tr>{% endfor %}</tbody>
-      </table>
-    </div>
-  </div>
-</section>
+{{ ui.pageBanner(c.crumb, c.title, t.photo[lang] + ": kelas", t.home[lang], '/' | langUrl(lang)) }}
 
 <section class="section">
   <div class="container">
-    <div class="section-head"><h2>{{ c.subjectTitle }}</h2></div>
-    <div class="subject-grid">
-      {% for s in c.subjects %}<div class="subject"><span class="feature-icon" aria-hidden="true">{{ s.icon }}</span>{{ s.title }}</div>{% endfor %}
+    <div class="section-head"><p class="lead">{{ c.intro }}</p></div>
+    <div class="split" style="align-items:start">
+      <div>
+        <h2>{{ c.phaseTitle }}</h2>
+        <div class="table-wrap">
+          <table class="info-table">
+            <thead><tr>{% for h in c.tableHead %}<th>{{ h }}</th>{% endfor %}</tr></thead>
+            <tbody>{% for p in c.phases %}<tr><td><strong>{{ p.phase }}</strong></td><td>{{ p.grades }}</td><td>{{ p.focus }}</td></tr>{% endfor %}</tbody>
+          </table>
+        </div>
+      </div>
+      <div>
+        <h2>{{ c.subjectTitle }}</h2>
+        <div class="table-wrap">
+          <table class="info-table">
+            <thead><tr>{% for h in c.subjectHead %}<th>{{ h }}</th>{% endfor %}</tr></thead>
+            <tbody>{% for s in c.subjects %}<tr><td>{{ s[0] }}</td><td>{{ s[1] }}</td></tr>{% endfor %}</tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 </section>

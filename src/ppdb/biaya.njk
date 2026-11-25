@@ -2,50 +2,52 @@
 slug: /ppdb/biaya/
 copy:
   id:
-    title: Biaya Pendidikan
-    eyebrow: PPDB
-    banner: Biaya Pendidikan
-    introTitle: Rincian biaya tahun ajaran [ISI]
-    intro: Semua biaya dalam Rupiah (Rp). Hubungi kami untuk informasi cicilan atau keringanan.
-    head: [Komponen, Kelas 1, Kelas 2 - 6, Keterangan]
+    title: Biaya
+    crumb: Pendaftaran
+    intro: Biaya tahun ajaran [ISI], dalam Rupiah. Angka yang berlaku adalah yang tertulis di surat rincian biaya dari sekolah.
+    head: [Komponen, Kelas 1, Kelas 2 sampai 6, Dibayar]
     rows:
-      - ["Uang pendaftaran", "[ISI]", "[ISI]", "Sekali bayar"]
-      - ["Uang pangkal", "[ISI]", "[ISI]", "Sekali bayar"]
-      - ["SPP bulanan", "[ISI]", "[ISI]", "Per bulan"]
-      - ["Seragam & buku", "[ISI]", "[ISI]", "Per tahun"]
-      - ["Kegiatan tahunan", "[ISI]", "[ISI]", "Per tahun"]
-    note: "Biaya dapat berubah. Angka resmi yang berlaku adalah yang tertulis dalam surat keterangan biaya dari sekolah."
+      - ["Formulir pendaftaran", "[ISI]", "[ISI]", "Sekali"]
+      - ["Uang pangkal", "[ISI]", "[ISI]", "Sekali, bisa dicicil [ISI] kali"]
+      - ["SPP", "[ISI]", "[ISI]", "Setiap bulan"]
+      - ["Seragam dan buku", "[ISI]", "[ISI]", "Setiap tahun"]
+      - ["Kegiatan (outing, wisuda tahfidz, dll.)", "[ISI]", "[ISI]", "Setiap tahun"]
+    notTitle: Yang belum termasuk
+    notIncluded: "[ISI] Contoh: katering, antar-jemput, ekstrakurikuler berbayar. Sebutkan harganya kalau ada."
+    helpTitle: Keringanan
+    help: "[ISI] Apakah ada potongan untuk saudara kandung, beasiswa, atau cicilan. Kalau tidak ada, tulis tidak ada."
   en:
-    title: School Fees
-    eyebrow: Admissions
-    banner: School Fees
-    introTitle: Fee breakdown for the [FILL] school year
-    intro: All fees are in Indonesian Rupiah (IDR). Contact us about instalments or fee assistance.
-    head: [Item, Grade 1, Grades 2 - 6, Notes]
+    title: Fees
+    crumb: Admissions
+    intro: Fees for the [FILL] school year, in Indonesian Rupiah. The amounts that apply are the ones in the school's written fee statement.
+    head: [Item, Grade 1, Grades 2 to 6, Paid]
     rows:
-      - ["Registration fee", "[FILL]", "[FILL]", "One-off"]
-      - ["Enrolment fee", "[FILL]", "[FILL]", "One-off"]
-      - ["Monthly tuition", "[FILL]", "[FILL]", "Per month"]
-      - ["Uniform & books", "[FILL]", "[FILL]", "Per year"]
-      - ["Annual activities", "[FILL]", "[FILL]", "Per year"]
-    note: "Fees may change. The official amounts are those in the school's written fee statement."
+      - ["Application form", "[FILL]", "[FILL]", "Once"]
+      - ["Enrolment fee", "[FILL]", "[FILL]", "Once, can be split into [FILL] payments"]
+      - ["Tuition", "[FILL]", "[FILL]", "Monthly"]
+      - ["Uniform and books", "[FILL]", "[FILL]", "Yearly"]
+      - ["Activities (trips, tahfidz graduation, etc.)", "[FILL]", "[FILL]", "Yearly"]
+    notTitle: Not included
+    notIncluded: "[FILL] E.g. catering, school transport, paid clubs. List prices where there are any."
+    helpTitle: Fee help
+    help: "[FILL] Sibling discount, scholarships or instalments. If there are none, say so."
 ---
 {% import "components.njk" as ui %}
-{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": sekolah") }}
+{{ ui.pageBanner(c.crumb, c.title, t.photo[lang] + ": sekolah", t.home[lang], '/' | langUrl(lang)) }}
 
 <section class="section">
   <div class="container">
-    <div class="section-head">
-      <h2>{{ c.introTitle }}</h2>
-      <p class="lead">{{ c.intro }}</p>
-    </div>
+    <div class="section-head"><p class="lead">{{ c.intro }}</p></div>
     <div class="table-wrap">
       <table class="info-table">
         <thead><tr>{% for h in c.head %}<th>{{ h }}</th>{% endfor %}</tr></thead>
         <tbody>{% for r in c.rows %}<tr>{% for cell in r %}<td>{% if loop.first %}<strong>{{ cell }}</strong>{% else %}{{ cell }}{% endif %}</td>{% endfor %}</tr>{% endfor %}</tbody>
       </table>
     </div>
-    <p class="note" style="margin-top:24px">{{ c.note }}</p>
+    <dl class="item-list" style="margin-top:48px">
+      <div class="item"><dt>{{ c.notTitle }}</dt><dd>{{ c.notIncluded }}</dd></div>
+      <div class="item"><dt>{{ c.helpTitle }}</dt><dd>{{ c.help }}</dd></div>
+    </dl>
   </div>
 </section>
 

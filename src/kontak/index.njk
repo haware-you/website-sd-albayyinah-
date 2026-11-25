@@ -3,47 +3,43 @@ slug: /kontak/
 copy:
   id:
     title: Kontak
-    eyebrow: Kontak
-    banner: Hubungi Kami
-    infoTitle: Informasi Kontak
+    infoTitle: Alamat dan jam kantor
     labels: { address: "Alamat", wa: "WhatsApp", email: "Email", hours: "Jam kantor" }
     mapLabel: "Peta lokasi (Google Maps embed) [ISI]"
     openMaps: Buka di Google Maps
     grades: [Kelas 1, Kelas 2, Kelas 3, Kelas 4, Kelas 5, Kelas 6]
     ask:
-      title: Tanya Info
-      intro: Ada pertanyaan tentang sekolah atau pendaftaran? Isi formulir, lalu kirim lewat WhatsApp.
+      title: Kirim pertanyaan
+      intro: Tulis pertanyaan Anda di sini. Formulir ini membuka WhatsApp, jadi balasan admin juga masuk ke WhatsApp Anda.
       header: "Assalamu'alaikum, saya ingin bertanya tentang SD Al Bayyinah."
       f: { parent: "Nama orang tua", phone: "Nomor WhatsApp", child: "Nama anak", age: "Usia / kelas saat ini", grade: "Mendaftar untuk kelas", question: "Pertanyaan" }
     visit:
-      title: Jadwalkan Kunjungan
-      intro: Lihat langsung suasana sekolah kami. Pilih tanggal dan jam yang Anda inginkan; admin akan mengonfirmasi lewat WhatsApp.
+      title: Jadwalkan kunjungan
+      intro: Datang dan lihat kelasnya sendiri, sekitar [ISI] menit. Pilih tanggal dan jam, lalu admin mengonfirmasi lewat WhatsApp.
       header: "Assalamu'alaikum, saya ingin menjadwalkan kunjungan ke SD Al Bayyinah."
       f: { parent: "Nama orang tua", phone: "Nomor WhatsApp", date: "Tanggal kunjungan", time: "Waktu", kids: "Jumlah anak", grade: "Kelas yang diminati" }
       times: [Pagi (08.00 - 10.00), Siang (10.00 - 12.00)]
   en:
     title: Contact
-    eyebrow: Contact
-    banner: Contact Us
-    infoTitle: Contact Details
+    infoTitle: Address and office hours
     labels: { address: "Address", wa: "WhatsApp", email: "Email", hours: "Office hours" }
     mapLabel: "Location map (Google Maps embed) [FILL]"
     openMaps: Open in Google Maps
     grades: [Grade 1, Grade 2, Grade 3, Grade 4, Grade 5, Grade 6]
     ask:
-      title: Ask a Question
-      intro: Have a question about the school or admissions? Fill in the form, then send it on WhatsApp.
+      title: Send a question
+      intro: Write your question here. This form opens WhatsApp, so our reply comes to your WhatsApp too.
       header: "Assalamu'alaikum, I would like to ask about SD Al Bayyinah."
       f: { parent: "Parent's name", phone: "WhatsApp number", child: "Child's name", age: "Child's age / current grade", grade: "Applying for grade", question: "Your question" }
     visit:
-      title: Book a Visit
-      intro: See our school in person. Choose a date and time; our admin will confirm on WhatsApp.
+      title: Book a visit
+      intro: Come and see the classrooms yourself, about [FILL] minutes. Pick a date and time and our admin will confirm on WhatsApp.
       header: "Assalamu'alaikum, I would like to book a visit to SD Al Bayyinah."
       f: { parent: "Parent's name", phone: "WhatsApp number", date: "Visit date", time: "Time", kids: "Number of children", grade: "Grade of interest" }
       times: [Morning (08:00 - 10:00), Late morning (10:00 - 12:00)]
 ---
 {% import "components.njk" as ui %}
-{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": gerbang sekolah") }}
+{{ ui.pageBanner('', c.title, t.photo[lang] + ": gerbang sekolah", t.home[lang], '/' | langUrl(lang)) }}
 
 <section class="section">
   <div class="container contact-grid">

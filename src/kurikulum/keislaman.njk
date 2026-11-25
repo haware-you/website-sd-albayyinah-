@@ -2,83 +2,62 @@
 slug: /kurikulum/keislaman/
 copy:
   id:
-    title: Program Keislaman
-    eyebrow: Kurikulum
-    banner: Program Keislaman
-    introTitle: Menanamkan cinta Al-Qur'an dan adab sejak dini
-    intro: "[ISI] Paragraf tentang tujuan dan pendekatan program keislaman sekolah."
+    title: Program keislaman
+    crumb: Kurikulum
+    intro: "[ISI] Satu paragraf: berapa jam per hari untuk Al-Qur'an, siapa gurunya, dan apa yang terjadi kalau anak tertinggal hafalannya."
     programs:
-      - { icon: "Q", title: "Tahfidz Al-Qur'an", text: "[ISI] Metode dan jadwal hafalan." }
-      - { icon: "B", title: "BTQ", text: "[ISI] Metode baca tulis Al-Qur'an yang digunakan." }
-      - { icon: "A", title: "Adab & Akhlak", text: "[ISI] Materi adab yang dibiasakan." }
-      - { icon: "Ib", title: "Praktik Ibadah", text: "[ISI] Shalat dhuha, shalat dzuhur berjamaah, doa harian." }
-    targetTitle: Target Hafalan per Kelas
-    targetHead: [Kelas, Target Hafalan]
+      - { title: "Tahfidz", text: "[ISI] Setoran berapa kali seminggu, satu guru menyimak berapa anak." }
+      - { title: "BTQ (baca tulis Al-Qur'an)", text: "[ISI] Metode yang dipakai (misalnya Ummi, Wafa, atau Iqro'), dan anak baru mulai dari jilid berapa." }
+      - { title: "Praktik ibadah", text: "[ISI] Shalat dhuha, dzuhur berjamaah, doa harian." }
+      - { title: "Adab", text: "[ISI] Contoh nyata yang dibiasakan: adab makan, kepada guru, di masjid." }
+    targetTitle: Target hafalan per kelas
+    targetNote: Target bisa disesuaikan untuk anak yang baru belajar membaca Al-Qur'an. [ISI cek dengan sekolah]
+    targetHead: [Kelas, Target, Contoh surat]
     targets:
-      - ["Kelas 1", "[ISI]"]
-      - ["Kelas 2", "[ISI]"]
-      - ["Kelas 3", "[ISI]"]
-      - ["Kelas 4", "[ISI]"]
-      - ["Kelas 5", "[ISI]"]
-      - ["Kelas 6", "[ISI]"]
-    routineTitle: Rutinitas Harian
-    routine:
-      - { title: "[ISI jam] Penyambutan & doa pagi", text: "[ISI] Keterangan singkat." }
-      - { title: "[ISI jam] Shalat dhuha & murajaah", text: "[ISI] Keterangan singkat." }
-      - { title: "[ISI jam] Pembelajaran kelas", text: "[ISI] Keterangan singkat." }
-      - { title: "[ISI jam] Shalat dzuhur berjamaah", text: "[ISI] Keterangan singkat." }
+      - ["Kelas 1", "[ISI]", "[ISI]"]
+      - ["Kelas 2", "[ISI]", "[ISI]"]
+      - ["Kelas 3", "[ISI]", "[ISI]"]
+      - ["Kelas 4", "[ISI]", "[ISI]"]
+      - ["Kelas 5", "[ISI]", "[ISI]"]
+      - ["Kelas 6", "[ISI]", "[ISI]"]
   en:
-    title: Islamic Programme
-    eyebrow: Curriculum
-    banner: Islamic Programme
-    introTitle: Growing a love of the Qur'an and good manners from an early age
-    intro: "[FILL] A paragraph on the aims and approach of the school's Islamic programme."
+    title: Islamic programme
+    crumb: Curriculum
+    intro: "[FILL] One paragraph: hours per day for the Qur'an, who teaches it, and what happens when a child falls behind."
     programs:
-      - { icon: "Q", title: "Tahfidz (Qur'an memorisation)", text: "[FILL] Method and memorisation schedule." }
-      - { icon: "B", title: "BTQ (Qur'an reading & writing)", text: "[FILL] The reading method used." }
-      - { icon: "A", title: "Adab & Character", text: "[FILL] Manners practised daily." }
-      - { icon: "Ib", title: "Worship Practice", text: "[FILL] Dhuha prayer, congregational dhuhr prayer, daily du'a." }
-    targetTitle: Memorisation Targets by Grade
-    targetHead: [Grade, Memorisation Target]
+      - { title: "Tahfidz (memorisation)", text: "[FILL] Recitations per week, how many children per teacher." }
+      - { title: "BTQ (Qur'an reading and writing)", text: "[FILL] Method used (e.g. Ummi, Wafa or Iqro') and which level new children start at." }
+      - { title: "Prayer practice", text: "[FILL] Dhuha, congregational dhuhr, daily du'a." }
+      - { title: "Adab (manners)", text: "[FILL] Real examples: at meals, towards teachers, in the mosque." }
+    targetTitle: Memorisation targets by grade
+    targetNote: Targets can be adjusted for children who are still learning to read the Qur'an. [FILL check with the school]
+    targetHead: [Grade, Target, Example surahs]
     targets:
-      - ["Grade 1", "[FILL]"]
-      - ["Grade 2", "[FILL]"]
-      - ["Grade 3", "[FILL]"]
-      - ["Grade 4", "[FILL]"]
-      - ["Grade 5", "[FILL]"]
-      - ["Grade 6", "[FILL]"]
-    routineTitle: Daily Routine
-    routine:
-      - { title: "[FILL time] Morning welcome & du'a", text: "[FILL] Short description." }
-      - { title: "[FILL time] Dhuha prayer & revision", text: "[FILL] Short description." }
-      - { title: "[FILL time] Classroom learning", text: "[FILL] Short description." }
-      - { title: "[FILL time] Congregational dhuhr prayer", text: "[FILL] Short description." }
+      - ["Grade 1", "[FILL]", "[FILL]"]
+      - ["Grade 2", "[FILL]", "[FILL]"]
+      - ["Grade 3", "[FILL]", "[FILL]"]
+      - ["Grade 4", "[FILL]", "[FILL]"]
+      - ["Grade 5", "[FILL]", "[FILL]"]
+      - ["Grade 6", "[FILL]", "[FILL]"]
 ---
 {% import "components.njk" as ui %}
-{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": siswa mengaji") }}
-
-{% call ui.split("", c.introTitle, t.photo[lang] + ": halaqah tahfidz") %}
-  <p>{{ c.intro }}</p>
-{% endcall %}
-
-<section class="section section--mint">
-  <div class="container">{{ ui.featureCards(c.programs) }}</div>
-</section>
+{{ ui.pageBanner(c.crumb, c.title, t.photo[lang] + ": halaqah tahfidz", t.home[lang], '/' | langUrl(lang)) }}
 
 <section class="section">
-  <div class="container split" style="align-items:start">
-    <div>
-      <h2>{{ c.targetTitle }}</h2>
-      <div class="table-wrap">
-        <table class="info-table">
-          <thead><tr>{% for h in c.targetHead %}<th>{{ h }}</th>{% endfor %}</tr></thead>
-          <tbody>{% for r in c.targets %}<tr><td>{{ r[0] }}</td><td>{{ r[1] }}</td></tr>{% endfor %}</tbody>
-        </table>
-      </div>
-    </div>
-    <div>
-      <h2>{{ c.routineTitle }}</h2>
-      <ol class="steps">{% for s in c.routine %}<li><h3>{{ s.title }}</h3><p>{{ s.text }}</p></li>{% endfor %}</ol>
+  <div class="container">
+    <div class="section-head"><p class="lead">{{ c.intro }}</p></div>
+    {{ ui.itemList(c.programs) }}
+  </div>
+</section>
+
+<section class="section section--mint">
+  <div class="container">
+    <div class="section-head"><h2>{{ c.targetTitle }}</h2><p>{{ c.targetNote }}</p></div>
+    <div class="table-wrap">
+      <table class="info-table">
+        <thead><tr>{% for h in c.targetHead %}<th>{{ h }}</th>{% endfor %}</tr></thead>
+        <tbody>{% for r in c.targets %}<tr><td><strong>{{ r[0] }}</strong></td><td>{{ r[1] }}</td><td>{{ r[2] }}</td></tr>{% endfor %}</tbody>
+      </table>
     </div>
   </div>
 </section>

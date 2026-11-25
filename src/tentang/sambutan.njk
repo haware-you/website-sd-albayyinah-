@@ -2,39 +2,37 @@
 slug: /tentang/sambutan/
 copy:
   id:
-    title: Sambutan Kepala Sekolah
-    eyebrow: Tentang Kami
-    banner: Sambutan Kepala Sekolah
+    title: Sambutan kepala sekolah
+    crumb: Tentang kami
     name: "[ISI Nama Kepala Sekolah]"
-    role: Kepala Sekolah SD Al Bayyinah
+    role: "Kepala sekolah sejak [ISI tahun]"
     paragraphs:
       - "Assalamu'alaikum warahmatullahi wabarakatuh."
-      - "[ISI] Paragraf pembuka sambutan: perkenalan dan ucapan selamat datang."
-      - "[ISI] Paragraf kedua: visi pendidikan dan pendekatan sekolah."
-      - "[ISI] Paragraf ketiga: ajakan kepada orang tua untuk berkunjung dan bekerja sama."
+      - "[ISI] Tulis dengan suara kepala sekolah sendiri. Mulai dari hal yang konkret: siapa beliau, sejak kapan di sekolah ini, apa yang beliau lihat setiap pagi di gerbang."
+      - "[ISI] Satu hal yang sedang diperbaiki sekolah tahun ini, dan alasannya. Kejujuran seperti ini lebih meyakinkan daripada janji."
+      - "[ISI] Ajakan untuk datang dan bertanya langsung, dengan nomor atau jadwal yang jelas."
       - "Wassalamu'alaikum warahmatullahi wabarakatuh."
   en:
-    title: Principal's Welcome
-    eyebrow: About Us
-    banner: Principal's Welcome
+    title: Letter from the principal
+    crumb: About
     name: "[FILL Principal's name]"
-    role: Principal of SD Al Bayyinah
+    role: "Principal since [FILL year]"
     paragraphs:
       - "Assalamu'alaikum warahmatullahi wabarakatuh."
-      - "[FILL] Opening paragraph: introduction and welcome."
-      - "[FILL] Second paragraph: educational vision and the school's approach."
-      - "[FILL] Third paragraph: invitation to parents to visit and work together."
+      - "[FILL] Written in the principal's own voice. Start with something concrete: who they are, how long they've been here, what they see at the gate each morning."
+      - "[FILL] One thing the school is improving this year, and why. That kind of honesty persuades more than promises."
+      - "[FILL] An invitation to visit and ask questions, with a clear number or schedule."
       - "Wassalamu'alaikum warahmatullahi wabarakatuh."
 ---
 {% import "components.njk" as ui %}
-{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": gedung sekolah") }}
+{{ ui.pageBanner(c.crumb, c.title, t.photo[lang] + ": gedung sekolah", t.home[lang], '/' | langUrl(lang)) }}
 
 <section class="section">
-  <div class="container split">
+  <div class="container split" style="align-items:start">
     <div class="split-media">
       {{ ui.photo(t.photo[lang] + ": kepala sekolah", "ph--tall") }}
-      <h3 style="margin-top:20px">{{ c.name }}</h3>
-      <p class="lead">{{ c.role }}</p>
+      <h3 style="margin-top:20px;margin-bottom:0">{{ c.name }}</h3>
+      <p style="color:var(--c-muted)">{{ c.role }}</p>
     </div>
     <div class="prose">
       {% for p in c.paragraphs %}<p>{{ p }}</p>{% endfor %}

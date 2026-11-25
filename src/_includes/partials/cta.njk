@@ -1,12 +1,12 @@
 <section class="cta-band">
-  <div class="cta-photo ph" role="img" aria-label="{{ t.photo[lang] }}"><span>{{ t.photo[lang] }}: siswa &amp; guru</span></div>
+  <div class="cta-photo ph" role="img" aria-label="{{ t.photo[lang] }}"><span>{{ t.photo[lang] }}: ruang kelas</span></div>
   <div class="container cta-inner">
     <div class="cta-text">
       <h2>{{ t.ctaTitle[lang] }}</h2>
       <p>{{ t.ctaText[lang] }}</p>
       <div class="btn-row">
-        <a class="btn btn--outline" href="{{ '/kontak/' | langUrl(lang) }}#kunjungan">{{ t.bookVisit[lang] }}</a>
-        <a class="btn btn--gold" href="{{ '/ppdb/' | langUrl(lang) }}">{{ t.applyNow[lang] }}</a>
+        <a class="btn btn--gold" href="{{ '/kontak/' | langUrl(lang) }}#kunjungan">{{ t.bookVisit[lang] }}</a>
+        <a class="btn btn--outline" href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">{{ t.chatWa[lang] }}</a>
       </div>
     </div>
   </div>

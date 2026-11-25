@@ -2,42 +2,42 @@
 slug: /ppdb/kalender/
 copy:
   id:
-    title: Kalender Akademik
-    eyebrow: PPDB
-    banner: Kalender Akademik
-    calTitle: Tahun Ajaran [ISI]
+    title: Kalender akademik
+    crumb: Pendaftaran
+    calTitle: Tahun ajaran [ISI]
     calHead: [Periode, Mulai, Selesai]
     cal:
-      - ["Semester Ganjil", "[ISI]", "[ISI]"]
-      - ["Libur Semester Ganjil", "[ISI]", "[ISI]"]
-      - ["Semester Genap", "[ISI]", "[ISI]"]
-      - ["Libur Ramadhan & Idul Fitri", "[ISI]", "[ISI]"]
-      - ["Libur Kenaikan Kelas", "[ISI]", "[ISI]"]
-    hoursTitle: Jam Sekolah
-    hoursHead: [Kelas, Senin - Kamis, Jumat]
+      - ["Semester ganjil", "[ISI]", "[ISI]"]
+      - ["Libur semester ganjil", "[ISI]", "[ISI]"]
+      - ["Semester genap", "[ISI]", "[ISI]"]
+      - ["Libur Ramadhan dan Idul Fitri", "[ISI]", "[ISI]"]
+      - ["Libur kenaikan kelas", "[ISI]", "[ISI]"]
+    hoursTitle: Jam sekolah
+    hoursHead: [Kelas, Senin sampai Kamis, Jumat]
     hours:
-      - ["Kelas 1 - 2", "[ISI]", "[ISI]"]
-      - ["Kelas 3 - 6", "[ISI]", "[ISI]"]
+      - ["Kelas 1 dan 2", "[ISI]", "[ISI]"]
+      - ["Kelas 3 sampai 6", "[ISI]", "[ISI]"]
+    ramadan: "[ISI] Jam sekolah selama Ramadhan."
   en:
-    title: Academic Calendar
-    eyebrow: Admissions
-    banner: Academic Calendar
-    calTitle: School Year [FILL]
-    calHead: [Period, Start, End]
+    title: Academic calendar
+    crumb: Admissions
+    calTitle: School year [FILL]
+    calHead: [Period, Starts, Ends]
     cal:
-      - ["Odd Semester", "[FILL]", "[FILL]"]
-      - ["Odd Semester Break", "[FILL]", "[FILL]"]
-      - ["Even Semester", "[FILL]", "[FILL]"]
-      - ["Ramadan & Eid al-Fitr Break", "[FILL]", "[FILL]"]
-      - ["End-of-Year Break", "[FILL]", "[FILL]"]
-    hoursTitle: School Hours
-    hoursHead: [Grade, Monday - Thursday, Friday]
+      - ["First semester", "[FILL]", "[FILL]"]
+      - ["First semester break", "[FILL]", "[FILL]"]
+      - ["Second semester", "[FILL]", "[FILL]"]
+      - ["Ramadan and Eid al-Fitr break", "[FILL]", "[FILL]"]
+      - ["End-of-year break", "[FILL]", "[FILL]"]
+    hoursTitle: School hours
+    hoursHead: [Grade, Monday to Thursday, Friday]
     hours:
-      - ["Grades 1 - 2", "[FILL]", "[FILL]"]
-      - ["Grades 3 - 6", "[FILL]", "[FILL]"]
+      - ["Grades 1 and 2", "[FILL]", "[FILL]"]
+      - ["Grades 3 to 6", "[FILL]", "[FILL]"]
+    ramadan: "[FILL] School hours during Ramadan."
 ---
 {% import "components.njk" as ui %}
-{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": kegiatan sekolah") }}
+{{ ui.pageBanner(c.crumb, c.title, t.photo[lang] + ": kegiatan sekolah", t.home[lang], '/' | langUrl(lang)) }}
 
 <section class="section">
   <div class="container split" style="align-items:start">
@@ -58,6 +58,7 @@ copy:
           <tbody>{% for r in c.hours %}<tr><td><strong>{{ r[0] }}</strong></td><td>{{ r[1] }}</td><td>{{ r[2] }}</td></tr>{% endfor %}</tbody>
         </table>
       </div>
+      <p style="margin-top:16px;color:var(--c-muted)">{{ c.ramadan }}</p>
     </div>
   </div>
 </section>

@@ -1,32 +1,32 @@
 [
   {
-    "label": { "id": "Tentang Kami", "en": "About Us" },
+    "label": { "id": "Tentang kami", "en": "About" },
     "url": "/tentang/profil/",
     "children": [
-      { "label": { "id": "Profil, Visi & Misi", "en": "Profile, Vision & Mission" }, "url": "/tentang/profil/" },
-      { "label": { "id": "Sambutan Kepala Sekolah", "en": "Principal's Welcome" }, "url": "/tentang/sambutan/" },
-      { "label": { "id": "Guru & Staf", "en": "Teachers & Staff" }, "url": "/tentang/guru-staf/" },
-      { "label": { "id": "Akreditasi & Legalitas", "en": "Accreditation" }, "url": "/tentang/akreditasi/" }
+      { "label": { "id": "Profil sekolah", "en": "School profile" }, "url": "/tentang/profil/" },
+      { "label": { "id": "Sambutan kepala sekolah", "en": "Letter from the principal" }, "url": "/tentang/sambutan/" },
+      { "label": { "id": "Guru dan staf", "en": "Teachers and staff" }, "url": "/tentang/guru-staf/" },
+      { "label": { "id": "Akreditasi dan izin", "en": "Accreditation and licences" }, "url": "/tentang/akreditasi/" }
     ]
   },
   {
     "label": { "id": "Kurikulum", "en": "Curriculum" },
     "url": "/kurikulum/",
     "children": [
-      { "label": { "id": "Kurikulum Merdeka", "en": "National Curriculum" }, "url": "/kurikulum/nasional/" },
-      { "label": { "id": "Program Keislaman", "en": "Islamic Programme" }, "url": "/kurikulum/keislaman/" },
-      { "label": { "id": "Penilaian & Rapor", "en": "Assessment & Reports" }, "url": "/kurikulum/penilaian/" }
+      { "label": { "id": "Kurikulum Merdeka", "en": "National curriculum" }, "url": "/kurikulum/nasional/" },
+      { "label": { "id": "Program keislaman", "en": "Islamic programme" }, "url": "/kurikulum/keislaman/" },
+      { "label": { "id": "Penilaian dan rapor", "en": "Assessment and reports" }, "url": "/kurikulum/penilaian/" }
     ]
   },
   {
-    "label": { "id": "PPDB", "en": "Admissions" },
+    "label": { "id": "Pendaftaran", "en": "Admissions" },
     "url": "/ppdb/",
     "children": [
-      { "label": { "id": "Alur Pendaftaran", "en": "How to Apply" }, "url": "/ppdb/alur/" },
-      { "label": { "id": "Biaya Pendidikan", "en": "School Fees" }, "url": "/ppdb/biaya/" },
-      { "label": { "id": "Kalender Akademik", "en": "Academic Calendar" }, "url": "/ppdb/kalender/" },
-      { "label": { "id": "Syarat Dokumen", "en": "Required Documents" }, "url": "/ppdb/syarat/" },
-      { "label": { "id": "Tanya Jawab (FAQ)", "en": "FAQ" }, "url": "/ppdb/faq/" }
+      { "label": { "id": "Cara mendaftar", "en": "How to apply" }, "url": "/ppdb/alur/" },
+      { "label": { "id": "Biaya", "en": "Fees" }, "url": "/ppdb/biaya/" },
+      { "label": { "id": "Kalender akademik", "en": "Academic calendar" }, "url": "/ppdb/kalender/" },
+      { "label": { "id": "Syarat dokumen", "en": "Documents needed" }, "url": "/ppdb/syarat/" },
+      { "label": { "id": "Pertanyaan umum", "en": "Common questions" }, "url": "/ppdb/faq/" }
     ]
   },
   {

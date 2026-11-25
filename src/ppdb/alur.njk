@@ -2,43 +2,37 @@
 slug: /ppdb/alur/
 copy:
   id:
-    title: Alur Pendaftaran
-    eyebrow: PPDB
-    banner: Alur Pendaftaran
-    introTitle: Lima langkah menjadi keluarga Al Bayyinah
-    intro: "[ISI] Sesuaikan langkah di bawah dengan proses PPDB sekolah yang sebenarnya."
+    title: Cara mendaftar
+    crumb: Pendaftaran
+    intro: "[ISI] Sesuaikan langkah di bawah dengan proses yang sebenarnya. Tulis berapa lama setiap langkah biasanya."
     steps:
-      - { title: "Tanya info atau jadwalkan kunjungan", text: "Hubungi kami lewat WhatsApp atau isi formulir di halaman Kontak." }
-      - { title: "Isi formulir pendaftaran", text: "[ISI] Formulir online / di sekolah." }
-      - { title: "Serahkan dokumen", text: "Lihat daftar di halaman Syarat Dokumen." }
-      - { title: "Observasi dan wawancara", text: "[ISI] Observasi kesiapan anak dan wawancara orang tua." }
-      - { title: "Pengumuman dan daftar ulang", text: "[ISI] Waktu pengumuman dan pembayaran daftar ulang." }
+      - { title: "Tanya atau datang dulu", text: "Kirim pertanyaan lewat WhatsApp, atau jadwalkan kunjungan untuk melihat kelas. Tidak wajib, tapi disarankan." }
+      - { title: "Isi formulir pendaftaran", text: "[ISI] Di mana formulirnya: online, atau diambil di sekolah. Ada biaya formulir atau tidak." }
+      - { title: "Serahkan dokumen", text: "Daftar lengkapnya ada di halaman Syarat dokumen." }
+      - { title: "Observasi anak dan wawancara orang tua", text: "[ISI] Berapa lama, apa yang dilihat. Tujuannya mengenal anak, bukan tes masuk (cek dengan sekolah)." }
+      - { title: "Pengumuman dan daftar ulang", text: "[ISI] Hasil keluar berapa hari setelah observasi. Batas waktu pembayaran daftar ulang." }
+    askTitle: Masih ada pertanyaan?
   en:
-    title: How to Apply
-    eyebrow: Admissions
-    banner: How to Apply
-    introTitle: Five steps to joining the Al Bayyinah family
-    intro: "[FILL] Adjust the steps below to match the school's actual admissions process."
+    title: How to apply
+    crumb: Admissions
+    intro: "[FILL] Adjust the steps below to the real process. Say how long each step usually takes."
     steps:
-      - { title: "Ask or book a visit", text: "Contact us on WhatsApp or fill in the form on the Contact page." }
-      - { title: "Complete the application form", text: "[FILL] Online / at school." }
-      - { title: "Submit documents", text: "See the list on the Required Documents page." }
-      - { title: "Observation and interview", text: "[FILL] Child readiness observation and parent interview." }
-      - { title: "Result and re-registration", text: "[FILL] When results are announced and re-registration payment." }
+      - { title: "Ask or visit first", text: "Send a question on WhatsApp, or book a visit to see the classrooms. Optional, but recommended." }
+      - { title: "Fill in the application form", text: "[FILL] Where the form is: online, or collected at school. Whether there is a form fee." }
+      - { title: "Hand in documents", text: "The full list is on Documents needed." }
+      - { title: "Child observation and parent interview", text: "[FILL] How long, what is observed. The aim is to get to know your child, not an entrance test (check with the school)." }
+      - { title: "Result and re-registration", text: "[FILL] Results come out how many days after observation. Deadline for the re-registration payment." }
+    askTitle: Still have a question?
 ---
 {% import "components.njk" as ui %}
-{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": meja pendaftaran") }}
+{{ ui.pageBanner(c.crumb, c.title, t.photo[lang] + ": meja pendaftaran", t.home[lang], '/' | langUrl(lang)) }}
 
 <section class="section">
   <div class="container" style="max-width:860px">
-    <div class="section-head">
-      <h2>{{ c.introTitle }}</h2>
-      <p class="lead">{{ c.intro }}</p>
-    </div>
+    <div class="section-head"><p class="lead">{{ c.intro }}</p></div>
     <ol class="steps">{% for s in c.steps %}<li><h3>{{ s.title }}</h3><p>{{ s.text }}</p></li>{% endfor %}</ol>
-    <div class="btn-row" style="margin-top:32px;justify-content:center">
-      <a class="btn btn--gold" href="{{ '/kontak/' | langUrl(lang) }}#tanya">{{ t.chatWa[lang] }}</a>
-    </div>
+    <h2 style="margin-top:48px">{{ c.askTitle }}</h2>
+    <a class="btn btn--gold" href="{{ '/kontak/' | langUrl(lang) }}#tanya">{{ t.chatWa[lang] }}</a>
   </div>
 </section>
 
