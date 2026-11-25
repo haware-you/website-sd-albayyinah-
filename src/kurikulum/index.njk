@@ -1,0 +1,45 @@
+---
+slug: /kurikulum/
+copy:
+  id:
+    title: Kurikulum
+    eyebrow: Kurikulum
+    banner: Kurikulum yang Seimbang antara Ilmu dan Iman
+    introTitle: Kurikulum nasional, diperkaya program keislaman
+    intro: "[ISI] Paragraf tentang pendekatan kurikulum sekolah: bagaimana kurikulum nasional dipadukan dengan program keislaman setiap hari."
+    advTitle: Keunggulan Pembelajaran
+    advantages: [Pembelajaran berpusat pada siswa, Proyek dan pengalaman nyata, Pembiasaan ibadah harian, Laporan perkembangan yang jelas untuk orang tua]
+    hubTitle: Jelajahi Kurikulum
+    cards:
+      - { title: "Kurikulum Merdeka", url: "/kurikulum/nasional/", photo: "Foto: kelas" }
+      - { title: "Program Keislaman", url: "/kurikulum/keislaman/", photo: "Foto: tahfidz" }
+      - { title: "Penilaian & Rapor", url: "/kurikulum/penilaian/", photo: "Foto: guru dan siswa" }
+  en:
+    title: Curriculum
+    eyebrow: Curriculum
+    banner: A Curriculum That Balances Knowledge and Faith
+    introTitle: The national curriculum, enriched with Islamic programmes
+    intro: "[FILL] A paragraph about the school's curriculum approach: how the national curriculum is combined with daily Islamic programmes."
+    advTitle: How We Teach
+    advantages: [Student-centred learning, Projects and real-world experience, Daily worship habits, Clear progress reports for parents]
+    hubTitle: Explore the Curriculum
+    cards:
+      - { title: "National Curriculum", url: "/kurikulum/nasional/", photo: "Photo: classroom" }
+      - { title: "Islamic Programme", url: "/kurikulum/keislaman/", photo: "Photo: tahfidz" }
+      - { title: "Assessment & Reports", url: "/kurikulum/penilaian/", photo: "Photo: teacher and student" }
+---
+{% import "components.njk" as ui %}
+{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": kegiatan kelas") }}
+
+{% call ui.split("", c.introTitle, t.photo[lang] + ": siswa belajar") %}
+  <p>{{ c.intro }}</p>
+  <p><strong>{{ c.advTitle }}</strong></p>
+  <ul>{% for a in c.advantages %}<li>{{ a }}</li>{% endfor %}</ul>
+{% endcall %}
+
+<section class="section section--mint">
+  <div class="container">
+    <div class="section-head"><h2>{{ c.hubTitle }}</h2></div>
+    {{ ui.cardGrid(c.cards, lang) }}
+  </div>
+</section>

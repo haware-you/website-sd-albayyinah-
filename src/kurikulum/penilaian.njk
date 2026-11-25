@@ -1,0 +1,43 @@
+---
+slug: /kurikulum/penilaian/
+copy:
+  id:
+    title: Penilaian & Rapor
+    eyebrow: Kurikulum
+    banner: Penilaian & Rapor
+    introTitle: Memantau perkembangan setiap anak
+    intro: "[ISI] Paragraf tentang cara sekolah menilai kemajuan siswa, baik akademik maupun keislaman."
+    stepsTitle: Bagaimana Kami Menilai
+    steps:
+      - { title: "Penilaian harian", text: "[ISI] Observasi dan tugas di kelas." }
+      - { title: "Penilaian tengah dan akhir semester", text: "[ISI] Bentuk dan jadwal." }
+      - { title: "Ujian hafalan (tasmi')", text: "[ISI] Bagaimana hafalan diuji." }
+      - { title: "Rapor & pertemuan orang tua", text: "[ISI] Frekuensi rapor dan konsultasi dengan wali kelas." }
+  en:
+    title: Assessment & Reports
+    eyebrow: Curriculum
+    banner: Assessment & Reports
+    introTitle: Tracking every child's progress
+    intro: "[FILL] A paragraph on how the school assesses student progress, both academic and Islamic."
+    stepsTitle: How We Assess
+    steps:
+      - { title: "Daily assessment", text: "[FILL] Observation and class tasks." }
+      - { title: "Mid- and end-of-semester assessment", text: "[FILL] Format and schedule." }
+      - { title: "Memorisation test (tasmi')", text: "[FILL] How memorisation is tested." }
+      - { title: "Reports & parent meetings", text: "[FILL] Report frequency and homeroom consultations." }
+---
+{% import "components.njk" as ui %}
+{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": guru dan siswa") }}
+
+{% call ui.split("", c.introTitle, t.photo[lang] + ": konsultasi orang tua", true) %}
+  <p>{{ c.intro }}</p>
+{% endcall %}
+
+<section class="section section--mint">
+  <div class="container" style="max-width:860px">
+    <div class="section-head"><h2>{{ c.stepsTitle }}</h2></div>
+    <ol class="steps">{% for s in c.steps %}<li><h3>{{ s.title }}</h3><p>{{ s.text }}</p></li>{% endfor %}</ol>
+  </div>
+</section>
+
+{% include "partials/prevnext.njk" %}

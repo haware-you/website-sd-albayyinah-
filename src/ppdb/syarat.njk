@@ -1,0 +1,42 @@
+---
+slug: /ppdb/syarat/
+copy:
+  id:
+    title: Syarat Dokumen
+    eyebrow: PPDB
+    banner: Syarat Dokumen
+    introTitle: Dokumen yang perlu disiapkan
+    intro: "[ISI] Sesuaikan daftar dengan persyaratan sekolah."
+    ageNote: "[ISI] Usia minimal calon siswa kelas 1 per [ISI tanggal]. Cek aturan usia SD terbaru dari Kemendikdasmen."
+    docs:
+      - "Fotokopi akta kelahiran"
+      - "Fotokopi Kartu Keluarga"
+      - "Fotokopi KTP kedua orang tua"
+      - "Pas foto anak [ISI ukuran dan jumlah]"
+      - "Surat keterangan TK / PAUD (jika ada)"
+      - "[ISI] Untuk siswa pindahan: rapor terakhir dan surat pindah"
+  en:
+    title: Required Documents
+    eyebrow: Admissions
+    banner: Required Documents
+    introTitle: Documents to prepare
+    intro: "[FILL] Adjust this list to the school's requirements."
+    ageNote: "[FILL] Minimum age for Grade 1 as of [FILL date]. Check the Ministry's latest primary school age rule."
+    docs:
+      - "Copy of birth certificate"
+      - "Copy of Family Card (Kartu Keluarga)"
+      - "Copy of both parents' ID cards (KTP)"
+      - "Child's passport photo [FILL size and number]"
+      - "Kindergarten / preschool certificate (if any)"
+      - "[FILL] For transfer students: latest report card and transfer letter"
+---
+{% import "components.njk" as ui %}
+{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": berkas pendaftaran") }}
+
+{% call ui.split("", c.introTitle, t.photo[lang] + ": orang tua mendaftar", true) %}
+  <p>{{ c.intro }}</p>
+  <ul>{% for d in c.docs %}<li>{{ d }}</li>{% endfor %}</ul>
+  <p class="note">{{ c.ageNote }}</p>
+{% endcall %}
+
+{% include "partials/prevnext.njk" %}

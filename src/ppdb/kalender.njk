@@ -1,0 +1,65 @@
+---
+slug: /ppdb/kalender/
+copy:
+  id:
+    title: Kalender Akademik
+    eyebrow: PPDB
+    banner: Kalender Akademik
+    calTitle: Tahun Ajaran [ISI]
+    calHead: [Periode, Mulai, Selesai]
+    cal:
+      - ["Semester Ganjil", "[ISI]", "[ISI]"]
+      - ["Libur Semester Ganjil", "[ISI]", "[ISI]"]
+      - ["Semester Genap", "[ISI]", "[ISI]"]
+      - ["Libur Ramadhan & Idul Fitri", "[ISI]", "[ISI]"]
+      - ["Libur Kenaikan Kelas", "[ISI]", "[ISI]"]
+    hoursTitle: Jam Sekolah
+    hoursHead: [Kelas, Senin - Kamis, Jumat]
+    hours:
+      - ["Kelas 1 - 2", "[ISI]", "[ISI]"]
+      - ["Kelas 3 - 6", "[ISI]", "[ISI]"]
+  en:
+    title: Academic Calendar
+    eyebrow: Admissions
+    banner: Academic Calendar
+    calTitle: School Year [FILL]
+    calHead: [Period, Start, End]
+    cal:
+      - ["Odd Semester", "[FILL]", "[FILL]"]
+      - ["Odd Semester Break", "[FILL]", "[FILL]"]
+      - ["Even Semester", "[FILL]", "[FILL]"]
+      - ["Ramadan & Eid al-Fitr Break", "[FILL]", "[FILL]"]
+      - ["End-of-Year Break", "[FILL]", "[FILL]"]
+    hoursTitle: School Hours
+    hoursHead: [Grade, Monday - Thursday, Friday]
+    hours:
+      - ["Grades 1 - 2", "[FILL]", "[FILL]"]
+      - ["Grades 3 - 6", "[FILL]", "[FILL]"]
+---
+{% import "components.njk" as ui %}
+{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": kegiatan sekolah") }}
+
+<section class="section">
+  <div class="container split" style="align-items:start">
+    <div>
+      <h2>{{ c.calTitle }}</h2>
+      <div class="table-wrap">
+        <table class="info-table">
+          <thead><tr>{% for h in c.calHead %}<th>{{ h }}</th>{% endfor %}</tr></thead>
+          <tbody>{% for r in c.cal %}<tr><td><strong>{{ r[0] }}</strong></td><td>{{ r[1] }}</td><td>{{ r[2] }}</td></tr>{% endfor %}</tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+      <h2>{{ c.hoursTitle }}</h2>
+      <div class="table-wrap">
+        <table class="info-table">
+          <thead><tr>{% for h in c.hoursHead %}<th>{{ h }}</th>{% endfor %}</tr></thead>
+          <tbody>{% for r in c.hours %}<tr><td><strong>{{ r[0] }}</strong></td><td>{{ r[1] }}</td><td>{{ r[2] }}</td></tr>{% endfor %}</tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include "partials/prevnext.njk" %}

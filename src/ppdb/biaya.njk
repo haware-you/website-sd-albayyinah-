@@ -1,0 +1,52 @@
+---
+slug: /ppdb/biaya/
+copy:
+  id:
+    title: Biaya Pendidikan
+    eyebrow: PPDB
+    banner: Biaya Pendidikan
+    introTitle: Rincian biaya tahun ajaran [ISI]
+    intro: Semua biaya dalam Rupiah (Rp). Hubungi kami untuk informasi cicilan atau keringanan.
+    head: [Komponen, Kelas 1, Kelas 2 - 6, Keterangan]
+    rows:
+      - ["Uang pendaftaran", "[ISI]", "[ISI]", "Sekali bayar"]
+      - ["Uang pangkal", "[ISI]", "[ISI]", "Sekali bayar"]
+      - ["SPP bulanan", "[ISI]", "[ISI]", "Per bulan"]
+      - ["Seragam & buku", "[ISI]", "[ISI]", "Per tahun"]
+      - ["Kegiatan tahunan", "[ISI]", "[ISI]", "Per tahun"]
+    note: "Biaya dapat berubah. Angka resmi yang berlaku adalah yang tertulis dalam surat keterangan biaya dari sekolah."
+  en:
+    title: School Fees
+    eyebrow: Admissions
+    banner: School Fees
+    introTitle: Fee breakdown for the [FILL] school year
+    intro: All fees are in Indonesian Rupiah (IDR). Contact us about instalments or fee assistance.
+    head: [Item, Grade 1, Grades 2 - 6, Notes]
+    rows:
+      - ["Registration fee", "[FILL]", "[FILL]", "One-off"]
+      - ["Enrolment fee", "[FILL]", "[FILL]", "One-off"]
+      - ["Monthly tuition", "[FILL]", "[FILL]", "Per month"]
+      - ["Uniform & books", "[FILL]", "[FILL]", "Per year"]
+      - ["Annual activities", "[FILL]", "[FILL]", "Per year"]
+    note: "Fees may change. The official amounts are those in the school's written fee statement."
+---
+{% import "components.njk" as ui %}
+{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": sekolah") }}
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>{{ c.introTitle }}</h2>
+      <p class="lead">{{ c.intro }}</p>
+    </div>
+    <div class="table-wrap">
+      <table class="info-table">
+        <thead><tr>{% for h in c.head %}<th>{{ h }}</th>{% endfor %}</tr></thead>
+        <tbody>{% for r in c.rows %}<tr>{% for cell in r %}<td>{% if loop.first %}<strong>{{ cell }}</strong>{% else %}{{ cell }}{% endif %}</td>{% endfor %}</tr>{% endfor %}</tbody>
+      </table>
+    </div>
+    <p class="note" style="margin-top:24px">{{ c.note }}</p>
+  </div>
+</section>
+
+{% include "partials/prevnext.njk" %}

@@ -1,0 +1,45 @@
+---
+slug: /tentang/sambutan/
+copy:
+  id:
+    title: Sambutan Kepala Sekolah
+    eyebrow: Tentang Kami
+    banner: Sambutan Kepala Sekolah
+    name: "[ISI Nama Kepala Sekolah]"
+    role: Kepala Sekolah SD Al Bayyinah
+    paragraphs:
+      - "Assalamu'alaikum warahmatullahi wabarakatuh."
+      - "[ISI] Paragraf pembuka sambutan: perkenalan dan ucapan selamat datang."
+      - "[ISI] Paragraf kedua: visi pendidikan dan pendekatan sekolah."
+      - "[ISI] Paragraf ketiga: ajakan kepada orang tua untuk berkunjung dan bekerja sama."
+      - "Wassalamu'alaikum warahmatullahi wabarakatuh."
+  en:
+    title: Principal's Welcome
+    eyebrow: About Us
+    banner: Principal's Welcome
+    name: "[FILL Principal's name]"
+    role: Principal of SD Al Bayyinah
+    paragraphs:
+      - "Assalamu'alaikum warahmatullahi wabarakatuh."
+      - "[FILL] Opening paragraph: introduction and welcome."
+      - "[FILL] Second paragraph: educational vision and the school's approach."
+      - "[FILL] Third paragraph: invitation to parents to visit and work together."
+      - "Wassalamu'alaikum warahmatullahi wabarakatuh."
+---
+{% import "components.njk" as ui %}
+{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": gedung sekolah") }}
+
+<section class="section">
+  <div class="container split">
+    <div class="split-media">
+      {{ ui.photo(t.photo[lang] + ": kepala sekolah", "ph--tall") }}
+      <h3 style="margin-top:20px">{{ c.name }}</h3>
+      <p class="lead">{{ c.role }}</p>
+    </div>
+    <div class="prose">
+      {% for p in c.paragraphs %}<p>{{ p }}</p>{% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "partials/prevnext.njk" %}

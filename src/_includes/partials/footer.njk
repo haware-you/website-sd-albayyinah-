@@ -1,0 +1,40 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <a class="brand brand--light" href="{{ '/' | langUrl(lang) }}">
+        <img src="/assets/img/logo.svg" alt="" width="44" height="44">
+        <span class="brand-text"><strong>Al Bayyinah</strong><small>Sekolah Dasar Islam</small></span>
+      </a>
+      <div class="footer-quick">
+        <a href="{{ '/kontak/' | langUrl(lang) }}">{{ t.contactUs[lang] }}</a>
+        <a href="{{ '/kontak/' | langUrl(lang) }}#kunjungan">{{ t.bookVisit[lang] }}</a>
+        <a href="{{ '/ppdb/' | langUrl(lang) }}">{{ t.applyNow[lang] }}</a>
+      </div>
+    </div>
+    <div class="footer-grid">
+      <div>
+        <p class="footer-tagline">{{ t.footerTagline[lang] }}</p>
+        <ul class="footer-contact">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5 7 13 7 13s7-8 7-13a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6.5a2.5 2.5 0 0 1 0 5Z"/></svg>{{ site.address }}</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm8 7 8-5H4l8 5Z"/></svg>{{ site.email }}</li>
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></svg>{{ site.whatsappDisplay }}</li>
+        </ul>
+      </div>
+      {% for item in nav %}{% if item.children %}
+      <div>
+        <h3 class="footer-heading">{{ item.label[lang] }}</h3>
+        <ul class="footer-links">
+          {% for child in item.children %}<li><a href="{{ child.url | langUrl(lang) }}">{{ child.label[lang] }}</a></li>{% endfor %}
+        </ul>
+      </div>
+      {% endif %}{% endfor %}
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; {{ year }} {{ site.name }}. {{ t.rights[lang] }}</p>
+      <div class="footer-social">
+        <a href="{{ site.social.instagram }}" aria-label="Instagram" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm0 8.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4ZM17.3 5.5a1.2 1.2 0 1 0 0 2.4 1.2 1.2 0 0 0 0-2.4ZM21.9 7c-.1-1.6-.4-3-1.6-4.2S17.6 1.2 16 1.1C14.4 1 9.6 1 8 1.1 6.4 1.2 5 1.5 3.8 2.7S2.2 5.4 2.1 7C2 8.6 2 13.4 2.1 15c.1 1.6.4 3 1.6 4.2s2.6 1.5 4.2 1.6c1.6.1 6.4.1 8 0 1.6-.1 3-.4 4.2-1.6s1.5-2.6 1.6-4.2c.1-1.6.1-6.4 0-8Z"/></svg></a>
+        <a href="{{ site.social.youtube }}" aria-label="YouTube" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23 7.2a3 3 0 0 0-2.1-2.1C19 4.6 12 4.6 12 4.6s-7 0-8.9.5A3 3 0 0 0 1 7.2 31 31 0 0 0 .5 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1 31 31 0 0 0 .5-4.8 31 31 0 0 0-.5-4.8ZM9.7 15.1V8.9L15.5 12l-5.8 3.1Z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>

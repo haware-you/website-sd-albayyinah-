@@ -1,0 +1,64 @@
+---
+slug: /tentang/profil/
+copy:
+  id:
+    title: Profil, Visi & Misi
+    eyebrow: Tentang Kami
+    banner: Mengenal SD Al Bayyinah
+    introTitle: Sekolah dasar Islam untuk generasi yang berilmu dan berakhlak
+    intro: "[ISI] Sejarah singkat sekolah dalam 1 sampai 2 paragraf: tahun berdiri, yayasan, dan perkembangan hingga hari ini."
+    visionTitle: Visi
+    vision: "[ISI] Visi sekolah."
+    missionTitle: Misi
+    missions: ["[ISI] Misi pertama.", "[ISI] Misi kedua.", "[ISI] Misi ketiga.", "[ISI] Misi keempat."]
+    valuesTitle: Nilai-Nilai Kami
+    values:
+      - { icon: "I", title: "Iman", text: "[ISI] Penjelasan singkat nilai." }
+      - { icon: "Il", title: "Ilmu", text: "[ISI] Penjelasan singkat nilai." }
+      - { icon: "Ak", title: "Akhlak", text: "[ISI] Penjelasan singkat nilai." }
+      - { icon: "Am", title: "Amal", text: "[ISI] Penjelasan singkat nilai." }
+  en:
+    title: Profile, Vision & Mission
+    eyebrow: About Us
+    banner: Getting to Know SD Al Bayyinah
+    introTitle: An Islamic primary school for a knowledgeable, well-mannered generation
+    intro: "[FILL] A short history of the school in 1 to 2 paragraphs: year founded, foundation, and growth to today."
+    visionTitle: Vision
+    vision: "[FILL] The school's vision."
+    missionTitle: Mission
+    missions: ["[FILL] First mission.", "[FILL] Second mission.", "[FILL] Third mission.", "[FILL] Fourth mission."]
+    valuesTitle: Our Values
+    values:
+      - { icon: "I", title: "Faith (Iman)", text: "[FILL] Short explanation." }
+      - { icon: "Il", title: "Knowledge (Ilmu)", text: "[FILL] Short explanation." }
+      - { icon: "Ak", title: "Character (Akhlak)", text: "[FILL] Short explanation." }
+      - { icon: "Am", title: "Good deeds (Amal)", text: "[FILL] Short explanation." }
+---
+{% import "components.njk" as ui %}
+{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": gedung sekolah") }}
+
+{% call ui.split("", c.introTitle, t.photo[lang] + ": suasana sekolah") %}
+  <p>{{ c.intro }}</p>
+{% endcall %}
+
+<section class="section section--mint">
+  <div class="container split">
+    <div>
+      <p class="eyebrow">{{ c.visionTitle }}</p>
+      <h2>{{ c.vision }}</h2>
+    </div>
+    <div>
+      <p class="eyebrow">{{ c.missionTitle }}</p>
+      <ol class="steps">{% for m in c.missions %}<li><p>{{ m }}</p></li>{% endfor %}</ol>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head"><h2>{{ c.valuesTitle }}</h2></div>
+    {{ ui.featureCards(c.values) }}
+  </div>
+</section>
+
+{% include "partials/prevnext.njk" %}

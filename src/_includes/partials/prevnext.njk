@@ -1,0 +1,3 @@
+{% import "components.njk" as ui %}
+{% set nb = nav | sectionNeighbors(page.url, lang) %}
+{{ ui.prevNext(nb.prev, nb.next, t.previous[lang], t.next[lang]) }}

@@ -1,0 +1,22 @@
+{
+  "_note": "Placeholder values marked [ISI] must be replaced with real school data before launch.",
+  "langs": ["id", "en"],
+  "name": "SD Al Bayyinah",
+  "nameLong": "Sekolah Dasar Islam Al Bayyinah",
+  "whatsapp": "6280000000000",
+  "whatsappDisplay": "+62 800-0000-0000 [ISI]",
+  "email": "info@sdalbayyinah.sch.id [ISI]",
+  "address": "Jl. [ISI alamat sekolah], Kota [ISI]",
+  "mapsUrl": "https://maps.google.com/",
+  "mapsEmbed": "",
+  "officeHours": {
+    "id": "Senin - Jumat, 07.00 - 15.00 [ISI]",
+    "en": "Monday - Friday, 07:00 - 15:00 [ISI]"
+  },
+  "social": {
+    "instagram": "https://instagram.com/",
+    "youtube": "https://youtube.com/"
+  },
+  "npsn": "[ISI]",
+  "accreditation": "[ISI]"
+}

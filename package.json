@@ -1,0 +1,28 @@
+{
+  "name": "website-sd-albayyinah-",
+  "version": "1.0.0",
+  "description": "Website SD Al Bayyinah",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/haware-you/website-sd-albayyinah-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/haware-you/website-sd-albayyinah-/issues"
+  },
+  "homepage": "https://github.com/haware-you/website-sd-albayyinah-#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.8"
+  },
+  "type": "module"
+}

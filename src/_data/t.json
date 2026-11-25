@@ -1,0 +1,31 @@
+{
+  "bookVisit": { "id": "Jadwalkan Kunjungan", "en": "Book a Visit" },
+  "applyNow": { "id": "Daftar Sekarang", "en": "Apply Now" },
+  "learnMore": { "id": "Selengkapnya", "en": "Learn More" },
+  "seeAll": { "id": "Lihat Semua", "en": "See All" },
+  "home": { "id": "Beranda", "en": "Home" },
+  "previous": { "id": "Sebelumnya", "en": "Previous" },
+  "next": { "id": "Berikutnya", "en": "Next" },
+  "menu": { "id": "Menu", "en": "Menu" },
+  "close": { "id": "Tutup", "en": "Close" },
+  "chatWa": { "id": "Chat WhatsApp", "en": "Chat on WhatsApp" },
+  "sendWa": { "id": "Kirim lewat WhatsApp", "en": "Send via WhatsApp" },
+  "waNote": {
+    "id": "Tombol ini membuka WhatsApp dengan pesan yang sudah terisi. Tekan Kirim di WhatsApp untuk menyelesaikan.",
+    "en": "This button opens WhatsApp with your message filled in. Press Send in WhatsApp to finish."
+  },
+  "ctaTitle": { "id": "Mulai perjalanan putra-putri Anda bersama kami", "en": "Start your child's journey with us" },
+  "ctaText": {
+    "id": "Kunjungi sekolah kami atau tanyakan apa saja lewat WhatsApp.",
+    "en": "Visit our school or ask us anything on WhatsApp."
+  },
+  "footerTagline": {
+    "id": "Sekolah dasar Islam yang menumbuhkan iman, ilmu, dan akhlak.",
+    "en": "An Islamic primary school growing faith, knowledge and character."
+  },
+  "quickLinks": { "id": "Tautan Cepat", "en": "Quick Links" },
+  "contactUs": { "id": "Hubungi Kami", "en": "Contact Us" },
+  "rights": { "id": "Hak cipta dilindungi.", "en": "All rights reserved." },
+  "photo": { "id": "Foto", "en": "Photo" },
+  "skip": { "id": "Lewati ke konten", "en": "Skip to content" }
+}

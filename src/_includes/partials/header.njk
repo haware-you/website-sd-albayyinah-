@@ -1,0 +1,41 @@
+<header class="site-header{% if heroHeader %} site-header--over-hero{% endif %}" data-header>
+  <div class="container header-inner">
+    <a class="brand" href="{{ '/' | langUrl(lang) }}">
+      <img src="/assets/img/logo.svg" alt="" width="44" height="44">
+      <span class="brand-text"><strong>Al Bayyinah</strong><small>Sekolah Dasar Islam</small></span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-nav-toggle>
+      <span class="nav-toggle-bar"></span><span class="visually-hidden">{{ t.menu[lang] }}</span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="{{ t.menu[lang] }}" data-nav>
+      <ul class="nav-list">
+        {% for item in nav %}
+        {% set itemUrl = item.url | langUrl(lang) %}
+        <li class="nav-item{% if item.children %} has-children{% endif %}">
+          {% if item.children %}
+          <button class="nav-link" type="button" aria-expanded="false" data-submenu-toggle>{{ item.label[lang] }}
+            <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 4l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+          </button>
+          <ul class="submenu">
+            {% for child in item.children %}
+            <li><a href="{{ child.url | langUrl(lang) }}"{% if page.url == (child.url | langUrl(lang)) %} aria-current="page"{% endif %}>{{ child.label[lang] }}</a></li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <a class="nav-link" href="{{ itemUrl }}"{% if page.url == itemUrl %} aria-current="page"{% endif %}>{{ item.label[lang] }}</a>
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+      <div class="nav-actions">
+        <a class="lang-switch" href="{{ page.url | otherLangUrl(lang) }}" hreflang="{{ 'id' if lang == 'en' else 'en' }}">
+          <span{% if lang == 'id' %} class="is-active"{% endif %}>ID</span> / <span{% if lang == 'en' %} class="is-active"{% endif %}>EN</span>
+        </a>
+        <a class="btn btn--outline" href="{{ '/kontak/' | langUrl(lang) }}#kunjungan">{{ t.bookVisit[lang] }}</a>
+        <a class="btn btn--gold" href="{{ '/ppdb/' | langUrl(lang) }}">{{ t.applyNow[lang] }}</a>
+      </div>
+    </nav>
+  </div>
+</header>

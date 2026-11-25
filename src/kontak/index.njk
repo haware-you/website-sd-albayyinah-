@@ -1,0 +1,91 @@
+---
+slug: /kontak/
+copy:
+  id:
+    title: Kontak
+    eyebrow: Kontak
+    banner: Hubungi Kami
+    infoTitle: Informasi Kontak
+    labels: { address: "Alamat", wa: "WhatsApp", email: "Email", hours: "Jam kantor" }
+    mapLabel: "Peta lokasi (Google Maps embed) [ISI]"
+    openMaps: Buka di Google Maps
+    grades: [Kelas 1, Kelas 2, Kelas 3, Kelas 4, Kelas 5, Kelas 6]
+    ask:
+      title: Tanya Info
+      intro: Ada pertanyaan tentang sekolah atau pendaftaran? Isi formulir, lalu kirim lewat WhatsApp.
+      header: "Assalamu'alaikum, saya ingin bertanya tentang SD Al Bayyinah."
+      f: { parent: "Nama orang tua", phone: "Nomor WhatsApp", child: "Nama anak", age: "Usia / kelas saat ini", grade: "Mendaftar untuk kelas", question: "Pertanyaan" }
+    visit:
+      title: Jadwalkan Kunjungan
+      intro: Lihat langsung suasana sekolah kami. Pilih tanggal dan jam yang Anda inginkan; admin akan mengonfirmasi lewat WhatsApp.
+      header: "Assalamu'alaikum, saya ingin menjadwalkan kunjungan ke SD Al Bayyinah."
+      f: { parent: "Nama orang tua", phone: "Nomor WhatsApp", date: "Tanggal kunjungan", time: "Waktu", kids: "Jumlah anak", grade: "Kelas yang diminati" }
+      times: [Pagi (08.00 - 10.00), Siang (10.00 - 12.00)]
+  en:
+    title: Contact
+    eyebrow: Contact
+    banner: Contact Us
+    infoTitle: Contact Details
+    labels: { address: "Address", wa: "WhatsApp", email: "Email", hours: "Office hours" }
+    mapLabel: "Location map (Google Maps embed) [FILL]"
+    openMaps: Open in Google Maps
+    grades: [Grade 1, Grade 2, Grade 3, Grade 4, Grade 5, Grade 6]
+    ask:
+      title: Ask a Question
+      intro: Have a question about the school or admissions? Fill in the form, then send it on WhatsApp.
+      header: "Assalamu'alaikum, I would like to ask about SD Al Bayyinah."
+      f: { parent: "Parent's name", phone: "WhatsApp number", child: "Child's name", age: "Child's age / current grade", grade: "Applying for grade", question: "Your question" }
+    visit:
+      title: Book a Visit
+      intro: See our school in person. Choose a date and time; our admin will confirm on WhatsApp.
+      header: "Assalamu'alaikum, I would like to book a visit to SD Al Bayyinah."
+      f: { parent: "Parent's name", phone: "WhatsApp number", date: "Visit date", time: "Time", kids: "Number of children", grade: "Grade of interest" }
+      times: [Morning (08:00 - 10:00), Late morning (10:00 - 12:00)]
+---
+{% import "components.njk" as ui %}
+{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": gerbang sekolah") }}
+
+<section class="section">
+  <div class="container contact-grid">
+    <div>
+      <div class="contact-card">
+        <h2>{{ c.infoTitle }}</h2>
+        <dl>
+          <dt>{{ c.labels.address }}</dt><dd>{{ site.address }}</dd>
+          <dt>{{ c.labels.wa }}</dt><dd><a href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">{{ site.whatsappDisplay }}</a></dd>
+          <dt>{{ c.labels.email }}</dt><dd>{{ site.email }}</dd>
+          <dt>{{ c.labels.hours }}</dt><dd>{{ site.officeHours[lang] }}</dd>
+        </dl>
+        {% if site.mapsEmbed %}
+        <iframe class="map-ph" src="{{ site.mapsEmbed }}" title="{{ c.mapLabel }}" loading="lazy" style="width:100%;border:0;border-radius:20px"></iframe>
+        {% else %}
+        {{ ui.photo(c.mapLabel, "map-ph") }}
+        {% endif %}
+        <p style="margin-top:16px"><a class="btn btn--outline" href="{{ site.mapsUrl }}" target="_blank" rel="noopener">{{ c.openMaps }}</a></p>
+      </div>
+    </div>
+
+    <div style="display:grid;gap:32px">
+      <div id="tanya">
+      {{ ui.waForm("form-tanya", c.ask.title, c.ask.intro, [
+        { name: "parent", label: c.ask.f.parent, required: true },
+        { name: "phone", label: c.ask.f.phone, type: "tel", required: true },
+        { name: "child", label: c.ask.f.child },
+        { name: "age", label: c.ask.f.age },
+        { name: "grade", label: c.ask.f.grade, type: "select", options: c.grades },
+        { name: "question", label: c.ask.f.question, type: "textarea", required: true }
+      ], c.ask.header, t.sendWa[lang], t.waNote[lang], site.whatsapp) }}
+      </div>
+      <div id="kunjungan">
+      {{ ui.waForm("form-kunjungan", c.visit.title, c.visit.intro, [
+        { name: "parent", label: c.visit.f.parent, required: true },
+        { name: "phone", label: c.visit.f.phone, type: "tel", required: true },
+        { name: "date", label: c.visit.f.date, type: "date", required: true },
+        { name: "time", label: c.visit.f.time, type: "select", options: c.visit.times, required: true },
+        { name: "kids", label: c.visit.f.kids, type: "number" },
+        { name: "grade", label: c.visit.f.grade, type: "select", options: c.grades }
+      ], c.visit.header, t.sendWa[lang], t.waNote[lang], site.whatsapp) }}
+      </div>
+    </div>
+  </div>
+</section>

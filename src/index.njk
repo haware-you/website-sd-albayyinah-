@@ -1,0 +1,160 @@
+---
+slug: /
+heroHeader: true
+copy:
+  id:
+    title: Beranda
+    description: SD Al Bayyinah, sekolah dasar Islam yang menumbuhkan iman, ilmu, dan akhlak.
+    heroEyebrow: Sekolah Dasar Islam
+    heroTitle: Menumbuhkan Generasi Berilmu dan Berakhlak Mulia
+    heroText: Pendidikan dasar yang memadukan Kurikulum Merdeka dengan pembiasaan nilai-nilai Islam.
+    whyEyebrow: Mengapa Al Bayyinah?
+    whyTitle: Fondasi kuat untuk dunia dan akhirat
+    whyText: "[ISI] Paragraf singkat tentang sekolah: sejak kapan berdiri, untuk siapa, dan apa yang membuatnya berbeda."
+    whyReasons: [Karakter Islami sejak dini, Kurikulum Merdeka, Program tahfidz Al-Qur'an, Guru yang peduli dan terlatih]
+    programTitle: Program Unggulan
+    programText: Program yang menjadi ciri khas pembelajaran di Al Bayyinah.
+    programs:
+      - { icon: "Q", title: "Tahfidz Al-Qur'an", text: "[ISI] Target hafalan per jenjang kelas." }
+      - { icon: "B", title: "BTQ", text: "[ISI] Baca Tulis Al-Qur'an dengan metode yang terstruktur." }
+      - { icon: "A", title: "Adab & Akhlak", text: "[ISI] Pembiasaan adab harian di sekolah dan rumah." }
+      - { icon: "Bi", title: "Bilingual", text: "[ISI] Penggunaan Bahasa Inggris dan Arab dalam keseharian." }
+    principalTitle: Sambutan Kepala Sekolah
+    principalQuote: "[ISI] Kutipan singkat dari sambutan kepala sekolah, dua sampai tiga kalimat."
+    principalName: "[ISI Nama Kepala Sekolah]"
+    statsTitle: Al Bayyinah dalam Angka
+    stats:
+      - { value: "[ISI]", label: "Tahun berdiri" }
+      - { value: "[ISI]", label: "Siswa" }
+      - { value: "[ISI]", label: "Guru & staf" }
+      - { value: "[ISI]", label: "Akreditasi" }
+    testiTitle: Kata Orang Tua
+    testimonials:
+      - { quote: "[ISI] Testimoni orang tua pertama. Gunakan kutipan asli dengan izin tertulis.", name: "[ISI Nama]", role: "Orang tua siswa kelas [ISI]" }
+      - { quote: "[ISI] Testimoni orang tua kedua.", name: "[ISI Nama]", role: "Orang tua siswa kelas [ISI]" }
+      - { quote: "[ISI] Testimoni orang tua ketiga.", name: "[ISI Nama]", role: "Orang tua siswa kelas [ISI]" }
+    newsTitle: Kabar Terbaru
+    newsTab: Berita
+    galleryTab: Galeri
+    news:
+      - { date: "[ISI tanggal]", title: "[ISI] Judul berita kegiatan sekolah" }
+      - { date: "[ISI tanggal]", title: "[ISI] Judul berita kegiatan sekolah" }
+      - { date: "[ISI tanggal]", title: "[ISI] Judul berita kegiatan sekolah" }
+  en:
+    title: Home
+    description: SD Al Bayyinah, an Islamic primary school growing faith, knowledge and character.
+    heroEyebrow: Islamic Primary School
+    heroTitle: Raising a Generation of Knowledge and Noble Character
+    heroText: Primary education that combines the national curriculum with daily Islamic values.
+    whyEyebrow: Why Al Bayyinah?
+    whyTitle: A strong foundation for this life and the next
+    whyText: "[FILL] A short paragraph about the school: when it was founded, who it serves, and what makes it different."
+    whyReasons: [Islamic character from an early age, National curriculum (Kurikulum Merdeka), Qur'an memorisation (tahfidz), Caring and trained teachers]
+    programTitle: Signature Programmes
+    programText: The programmes that define learning at Al Bayyinah.
+    programs:
+      - { icon: "Q", title: "Tahfidz (Qur'an memorisation)", text: "[FILL] Memorisation targets per grade." }
+      - { icon: "B", title: "BTQ (Qur'an reading & writing)", text: "[FILL] Structured Qur'an reading and writing." }
+      - { icon: "A", title: "Adab & Character", text: "[FILL] Daily manners practised at school and home." }
+      - { icon: "Bi", title: "Bilingual", text: "[FILL] English and Arabic used in daily school life." }
+    principalTitle: Principal's Welcome
+    principalQuote: "[FILL] A short quote from the principal's welcome, two to three sentences."
+    principalName: "[FILL Principal's name]"
+    statsTitle: Al Bayyinah in Numbers
+    stats:
+      - { value: "[FILL]", label: "Year founded" }
+      - { value: "[FILL]", label: "Students" }
+      - { value: "[FILL]", label: "Teachers & staff" }
+      - { value: "[FILL]", label: "Accreditation" }
+    testiTitle: What Parents Say
+    testimonials:
+      - { quote: "[FILL] First parent testimonial. Use a real quote with written permission.", name: "[FILL Name]", role: "Parent of a Grade [FILL] student" }
+      - { quote: "[FILL] Second parent testimonial.", name: "[FILL Name]", role: "Parent of a Grade [FILL] student" }
+      - { quote: "[FILL] Third parent testimonial.", name: "[FILL Name]", role: "Parent of a Grade [FILL] student" }
+    newsTitle: Latest Updates
+    newsTab: News
+    galleryTab: Gallery
+    news:
+      - { date: "[FILL date]", title: "[FILL] School activity headline" }
+      - { date: "[FILL date]", title: "[FILL] School activity headline" }
+      - { date: "[FILL date]", title: "[FILL] School activity headline" }
+---
+{% import "components.njk" as ui %}
+
+<section class="hero">
+  {{ ui.photo(t.photo[lang] + ": hero, siswa di halaman sekolah") }}
+  <div class="container hero-inner">
+    {{ ui.eyebrow(c.heroEyebrow) }}
+    <h1>{{ c.heroTitle }}</h1>
+    <p>{{ c.heroText }}</p>
+    <div class="btn-row">
+      <a class="btn btn--gold" href="{{ '/tentang/profil/' | langUrl(lang) }}">{{ t.learnMore[lang] }}</a>
+    </div>
+  </div>
+</section>
+
+{% call ui.split(c.whyEyebrow, c.whyTitle, t.photo[lang] + ": kegiatan belajar", false, t.learnMore[lang], '/tentang/profil/' | langUrl(lang)) %}
+  <p>{{ c.whyText }}</p>
+  <ul>{% for r in c.whyReasons %}<li>{{ r }}</li>{% endfor %}</ul>
+{% endcall %}
+
+<section class="section section--mint">
+  <div class="container">
+    <div class="section-head">
+      <h2>{{ c.programTitle }}</h2>
+      <p class="lead">{{ c.programText }}</p>
+    </div>
+    {{ ui.featureCards(c.programs) }}
+  </div>
+</section>
+
+<section class="principal-band">
+  <div class="container principal-inner">
+    <div class="principal-card">
+      <h2>{{ c.principalTitle }}</h2>
+      <blockquote>{{ c.principalQuote }}</blockquote>
+      <p><strong>{{ c.principalName }}</strong></p>
+      <a class="btn btn--gold" href="{{ '/tentang/sambutan/' | langUrl(lang) }}">{{ t.learnMore[lang] }}</a>
+    </div>
+    {{ ui.photo(t.photo[lang] + ": kepala sekolah", "principal-photo") }}
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head"><h2>{{ c.statsTitle }}</h2></div>
+    <div class="stats">
+      {% for s in c.stats %}<div class="stat"><strong>{{ s.value }}</strong><span>{{ s.label }}</span></div>{% endfor %}
+    </div>
+  </div>
+</section>
+
+{{ ui.testimonials(c.testiTitle, c.testimonials) }}
+
+<section class="section" data-tabs>
+  <div class="container">
+    <div class="section-head section-head--row">
+      <h2>{{ c.newsTitle }}</h2>
+      <div class="tabs" role="tablist">
+        <button class="tab" role="tab" aria-selected="true" aria-controls="panel-news" id="tab-news">{{ c.newsTab }}</button>
+        <button class="tab" role="tab" aria-selected="false" aria-controls="panel-gallery" id="tab-gallery">{{ c.galleryTab }}</button>
+      </div>
+    </div>
+    <div id="panel-news" role="tabpanel" aria-labelledby="tab-news">
+      <div class="news-grid">
+        {% for n in c.news %}
+        <article class="news-card">
+          {{ ui.photo(t.photo[lang] + ": berita") }}
+          <time>{{ n.date }}</time>
+          <h3>{{ n.title }}</h3>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+    <div id="panel-gallery" role="tabpanel" aria-labelledby="tab-gallery" hidden>
+      <div class="news-grid">
+        {% for i in range(0, 6) %}{{ ui.photo(t.photo[lang] + ": galeri " + (i + 1)) }}{% endfor %}
+      </div>
+    </div>
+  </div>
+</section>

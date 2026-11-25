@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Logo placeholder">
+  <!-- Placeholder logo. Replace with the school's real logo file. -->
+  <rect width="64" height="64" rx="16" fill="#014843"/>
+  <path d="M32 10l5.2 7.6 8.9-2.4-2.4 8.9L51.3 29l-7.6 5.2 2.4 8.9-8.9-2.4L32 48.3l-5.2-7.6-8.9 2.4 2.4-8.9L12.7 29l7.6-5.2-2.4-8.9 8.9 2.4z" fill="none" stroke="#f5b82e" stroke-width="2"/>
+  <text x="32" y="36" text-anchor="middle" font-family="Outfit, sans-serif" font-size="13" font-weight="700" fill="#f5b82e">AB</text>
+</svg>

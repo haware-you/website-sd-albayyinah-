@@ -1,0 +1,47 @@
+---
+slug: /tentang/akreditasi/
+copy:
+  id:
+    title: Akreditasi & Legalitas
+    eyebrow: Tentang Kami
+    banner: Akreditasi & Legalitas
+    introTitle: Sekolah yang terdaftar dan terakreditasi resmi
+    intro: Informasi legalitas berikut dapat diverifikasi melalui situs resmi pemerintah.
+    items:
+      - { title: "Akreditasi BAN-PDM", text: "[ISI] Peringkat akreditasi, tahun penetapan, dan nomor SK." }
+      - { title: "NPSN", text: "[ISI] Nomor Pokok Sekolah Nasional, terdaftar di Data Pokok Pendidikan (Dapodik) Kemendikdasmen." }
+      - { title: "Izin Operasional", text: "[ISI] Nomor dan tanggal izin operasional dari Dinas Pendidikan." }
+      - { title: "Yayasan Penyelenggara", text: "[ISI] Nama yayasan dan nomor akta / SK Kemenkumham." }
+  en:
+    title: Accreditation
+    eyebrow: About Us
+    banner: Accreditation & Licensing
+    introTitle: An officially registered and accredited school
+    intro: The licensing details below can be verified on official government websites.
+    items:
+      - { title: "BAN-PDM Accreditation", text: "[FILL] Accreditation grade, year awarded, and decree number." }
+      - { title: "NPSN (National School ID)", text: "[FILL] National School Number, registered in the Ministry's Dapodik database." }
+      - { title: "Operating Licence", text: "[FILL] Licence number and date from the Education Office." }
+      - { title: "Governing Foundation", text: "[FILL] Foundation name and deed / Ministry of Law decree number." }
+---
+{% import "components.njk" as ui %}
+{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": gedung sekolah") }}
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>{{ c.introTitle }}</h2>
+      <p class="lead">{{ c.intro }}</p>
+    </div>
+    <div class="logo-list">
+      {% for i in c.items %}
+      <div class="logo-item">
+        {{ ui.photo("Logo") }}
+        <div><h3>{{ i.title }}</h3><p>{{ i.text }}</p></div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "partials/prevnext.njk" %}

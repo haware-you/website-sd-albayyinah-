@@ -1,0 +1,45 @@
+---
+slug: /ppdb/alur/
+copy:
+  id:
+    title: Alur Pendaftaran
+    eyebrow: PPDB
+    banner: Alur Pendaftaran
+    introTitle: Lima langkah menjadi keluarga Al Bayyinah
+    intro: "[ISI] Sesuaikan langkah di bawah dengan proses PPDB sekolah yang sebenarnya."
+    steps:
+      - { title: "Tanya info atau jadwalkan kunjungan", text: "Hubungi kami lewat WhatsApp atau isi formulir di halaman Kontak." }
+      - { title: "Isi formulir pendaftaran", text: "[ISI] Formulir online / di sekolah." }
+      - { title: "Serahkan dokumen", text: "Lihat daftar di halaman Syarat Dokumen." }
+      - { title: "Observasi dan wawancara", text: "[ISI] Observasi kesiapan anak dan wawancara orang tua." }
+      - { title: "Pengumuman dan daftar ulang", text: "[ISI] Waktu pengumuman dan pembayaran daftar ulang." }
+  en:
+    title: How to Apply
+    eyebrow: Admissions
+    banner: How to Apply
+    introTitle: Five steps to joining the Al Bayyinah family
+    intro: "[FILL] Adjust the steps below to match the school's actual admissions process."
+    steps:
+      - { title: "Ask or book a visit", text: "Contact us on WhatsApp or fill in the form on the Contact page." }
+      - { title: "Complete the application form", text: "[FILL] Online / at school." }
+      - { title: "Submit documents", text: "See the list on the Required Documents page." }
+      - { title: "Observation and interview", text: "[FILL] Child readiness observation and parent interview." }
+      - { title: "Result and re-registration", text: "[FILL] When results are announced and re-registration payment." }
+---
+{% import "components.njk" as ui %}
+{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": meja pendaftaran") }}
+
+<section class="section">
+  <div class="container" style="max-width:860px">
+    <div class="section-head">
+      <h2>{{ c.introTitle }}</h2>
+      <p class="lead">{{ c.intro }}</p>
+    </div>
+    <ol class="steps">{% for s in c.steps %}<li><h3>{{ s.title }}</h3><p>{{ s.text }}</p></li>{% endfor %}</ol>
+    <div class="btn-row" style="margin-top:32px;justify-content:center">
+      <a class="btn btn--gold" href="{{ '/kontak/' | langUrl(lang) }}#tanya">{{ t.chatWa[lang] }}</a>
+    </div>
+  </div>
+</section>
+
+{% include "partials/prevnext.njk" %}

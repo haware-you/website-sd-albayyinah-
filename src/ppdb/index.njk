@@ -1,0 +1,46 @@
+---
+slug: /ppdb/
+copy:
+  id:
+    title: PPDB
+    eyebrow: Penerimaan Peserta Didik Baru
+    banner: Terima kasih telah mempertimbangkan SD Al Bayyinah
+    introTitle: Mulai perjalanan bersama kami
+    intro: "Sebelum mendaftar, silakan baca informasi di bagian ini. Tim penerimaan kami siap membantu lewat WhatsApp jika ada pertanyaan."
+    period: "[ISI] Periode pendaftaran tahun ajaran [ISI]: [ISI tanggal buka] sampai [ISI tanggal tutup]."
+    hubTitle: Informasi Pendaftaran
+    cards:
+      - { title: "Alur Pendaftaran", url: "/ppdb/alur/", photo: "Foto" }
+      - { title: "Biaya Pendidikan", url: "/ppdb/biaya/", photo: "Foto" }
+      - { title: "Kalender Akademik", url: "/ppdb/kalender/", photo: "Foto" }
+      - { title: "Syarat Dokumen", url: "/ppdb/syarat/", photo: "Foto" }
+      - { title: "Tanya Jawab (FAQ)", url: "/ppdb/faq/", photo: "Foto" }
+  en:
+    title: Admissions
+    eyebrow: New Student Admissions
+    banner: Thank you for considering SD Al Bayyinah
+    introTitle: Start the journey with us
+    intro: "Before applying, please read the information in this section. Our admissions team is happy to help on WhatsApp if you have questions."
+    period: "[FILL] Registration period for the [FILL] school year: [FILL open date] to [FILL close date]."
+    hubTitle: Admissions Information
+    cards:
+      - { title: "How to Apply", url: "/ppdb/alur/", photo: "Photo" }
+      - { title: "School Fees", url: "/ppdb/biaya/", photo: "Photo" }
+      - { title: "Academic Calendar", url: "/ppdb/kalender/", photo: "Photo" }
+      - { title: "Required Documents", url: "/ppdb/syarat/", photo: "Photo" }
+      - { title: "FAQ", url: "/ppdb/faq/", photo: "Photo" }
+---
+{% import "components.njk" as ui %}
+{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": siswa baru") }}
+
+{% call ui.split("", c.introTitle, t.photo[lang] + ": orang tua dan anak", false, t.applyNow[lang], '/ppdb/alur/' | langUrl(lang)) %}
+  <p>{{ c.intro }}</p>
+  <p class="note">{{ c.period }}</p>
+{% endcall %}
+
+<section class="section section--mint">
+  <div class="container">
+    <div class="section-head"><h2>{{ c.hubTitle }}</h2></div>
+    {{ ui.cardGrid(c.cards, lang) }}
+  </div>
+</section>

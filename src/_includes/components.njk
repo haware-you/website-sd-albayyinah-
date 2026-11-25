@@ -1,0 +1,137 @@
+{#
+  Reusable components. Import in a page with:
+  {% import "components.njk" as ui %}
+  Photos are placeholders (class "ph") until the school supplies real images.
+#}
+
+{% macro photo(label, cls="") %}
+<div class="ph {{ cls }}" role="img" aria-label="{{ label }}"><span>{{ label }}</span></div>
+{% endmacro %}
+
+{% macro eyebrow(text) %}{% if text %}<p class="eyebrow">{{ text }}</p>{% endif %}{% endmacro %}
+
+{# Inner-page banner: photo background, eyebrow + title #}
+{% macro pageBanner(eyebrowText, title, photoLabel) %}
+<section class="page-banner">
+  <div class="ph page-banner-photo" role="img" aria-label="{{ photoLabel }}"><span>{{ photoLabel }}</span></div>
+  <div class="container page-banner-inner">
+    {{ eyebrow(eyebrowText) }}
+    <h1>{{ title }}</h1>
+  </div>
+</section>
+{% endmacro %}
+
+{# Image + text block. Body comes from {% call %}. #}
+{% macro split(eyebrowText, title, photoLabel, reverse=false, btnText="", btnUrl="") %}
+<section class="section">
+  <div class="container split{% if reverse %} split--reverse{% endif %}">
+    <div class="split-media">{{ photo(photoLabel, "ph--tall") }}</div>
+    <div class="split-body">
+      {{ eyebrow(eyebrowText) }}
+      <h2>{{ title }}</h2>
+      {{ caller() }}
+      {% if btnText %}<a class="btn btn--gold" href="{{ btnUrl }}">{{ btnText }}</a>{% endif %}
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+{# Grid of tall portrait link cards (hub pages) #}
+{% macro cardGrid(cards, lang) %}
+<div class="card-grid">
+  {% for c in cards %}
+  <a class="portrait-card" href="{{ c.url | langUrl(lang) }}">
+    {{ photo(c.photo) }}
+    <span class="portrait-card-label">{{ c.title }}<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></span>
+  </a>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{# Feature cards with icon letter #}
+{% macro featureCards(items) %}
+<div class="feature-grid">
+  {% for f in items %}
+  <article class="feature-card">
+    <span class="feature-icon" aria-hidden="true">{{ f.icon }}</span>
+    <h3>{{ f.title }}</h3>
+    <p>{{ f.text }}</p>
+  </article>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{# Testimonial slider #}
+{% macro testimonials(heading, items) %}
+<section class="section testimonials" data-slider>
+  <div class="container testimonials-inner">
+    <h2>{{ heading }}</h2>
+    <div class="testimonial-track">
+      {% for q in items %}
+      <figure class="testimonial{% if loop.first %} is-active{% endif %}" data-slide>
+        <blockquote>{{ q.quote }}</blockquote>
+        <figcaption>
+          <span class="avatar" aria-hidden="true">{{ q.name | first }}</span>
+          <span><strong>{{ q.name }}</strong><small>{{ q.role }}</small></span>
+        </figcaption>
+      </figure>
+      {% endfor %}
+    </div>
+    <div class="slider-dots">
+      {% for q in items %}<button type="button" class="dot{% if loop.first %} is-active{% endif %}" aria-label="{{ loop.index }}" data-dot="{{ loop.index0 }}"></button>{% endfor %}
+    </div>
+  </div>
+</section>
+{% endmacro %}
+
+{# FAQ accordion using native <details> #}
+{% macro faq(items) %}
+<div class="faq">
+  {% for q in items %}
+  <details class="faq-item">
+    <summary>{{ q.q }}<span class="faq-icon" aria-hidden="true"></span></summary>
+    <div class="faq-answer"><p>{{ q.a }}</p></div>
+  </details>
+  {% endfor %}
+</div>
+{% endmacro %}
+
+{# Previous / next links at the bottom of a section page #}
+{% macro prevNext(prev, next, prevLabel, nextLabel) %}
+<nav class="container prev-next" aria-label="{{ prevLabel }} / {{ nextLabel }}">
+  {% if prev %}<a class="prev" href="{{ prev.url }}"><small>{{ prevLabel }}</small><strong>{{ prev.title }}</strong></a>{% else %}<span></span>{% endif %}
+  {% if next %}<a class="next" href="{{ next.url }}"><small>{{ nextLabel }}</small><strong>{{ next.title }}</strong></a>{% endif %}
+</nav>
+{% endmacro %}
+
+{#
+  WhatsApp form. Nothing is sent to a server: main.js builds a message from the
+  fields and opens wa.me/<number>?text=... so the parent presses Send in WhatsApp.
+  fields: [{ name, label, type: text|tel|date|number|select|textarea, options?, required? }]
+#}
+{% macro waForm(id, title, intro, fields, header, submitLabel, note, waNumber) %}
+<form class="wa-form" id="{{ id }}" data-wa-form data-wa-number="{{ waNumber }}" data-wa-header="{{ header }}" novalidate>
+  <h3>{{ title }}</h3>
+  {% if intro %}<p class="wa-form-intro">{{ intro }}</p>{% endif %}
+  <div class="form-grid">
+    {% for f in fields %}
+    <label class="field{% if f.type == 'textarea' %} field--full{% endif %}">
+      <span>{{ f.label }}{% if f.required %} <em aria-hidden="true">*</em>{% endif %}</span>
+      {% if f.type == 'select' %}
+      <select name="{{ f.name }}" data-label="{{ f.label }}"{% if f.required %} required{% endif %}>
+        <option value="">—</option>
+        {% for o in f.options %}<option>{{ o }}</option>{% endfor %}
+      </select>
+      {% elif f.type == 'textarea' %}
+      <textarea name="{{ f.name }}" rows="4" data-label="{{ f.label }}"{% if f.required %} required{% endif %}></textarea>
+      {% else %}
+      <input type="{{ f.type or 'text' }}" name="{{ f.name }}" data-label="{{ f.label }}"{% if f.required %} required{% endif %}>
+      {% endif %}
+    </label>
+    {% endfor %}
+  </div>
+  <p class="form-error" role="alert" hidden></p>
+  <button class="btn btn--gold btn--wa" type="submit">{{ submitLabel }}</button>
+  <p class="wa-form-note">{{ note }}</p>
+</form>
+{% endmacro %}

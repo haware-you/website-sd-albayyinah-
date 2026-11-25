@@ -1,0 +1,69 @@
+---
+slug: /tentang/guru-staf/
+copy:
+  id:
+    title: Guru & Staf
+    eyebrow: Tentang Kami
+    banner: Guru & Staf
+    introTitle: Pendidik yang berkompeten dan berakhlak
+    intro: "[ISI] Paragraf tentang kualifikasi guru, pelatihan rutin, dan pendekatan mengajar."
+    leaderTitle: Pimpinan Sekolah
+    teacherTitle: Guru Kelas & Mata Pelajaran
+    leaders:
+      - { name: "[ISI Nama]", role: "Kepala Sekolah" }
+      - { name: "[ISI Nama]", role: "Wakil Kepala Bidang Kurikulum" }
+      - { name: "[ISI Nama]", role: "Wakil Kepala Bidang Kesiswaan" }
+      - { name: "[ISI Nama]", role: "Koordinator Program Keislaman" }
+    teachers:
+      - { name: "[ISI Nama]", role: "Wali Kelas 1" }
+      - { name: "[ISI Nama]", role: "Wali Kelas 2" }
+      - { name: "[ISI Nama]", role: "Wali Kelas 3" }
+      - { name: "[ISI Nama]", role: "Wali Kelas 4" }
+      - { name: "[ISI Nama]", role: "Wali Kelas 5" }
+      - { name: "[ISI Nama]", role: "Wali Kelas 6" }
+      - { name: "[ISI Nama]", role: "Guru Tahfidz" }
+      - { name: "[ISI Nama]", role: "Guru PJOK" }
+  en:
+    title: Teachers & Staff
+    eyebrow: About Us
+    banner: Teachers & Staff
+    introTitle: Competent educators with good character
+    intro: "[FILL] A paragraph about teacher qualifications, regular training, and teaching approach."
+    leaderTitle: School Leadership
+    teacherTitle: Class & Subject Teachers
+    leaders:
+      - { name: "[FILL Name]", role: "Principal" }
+      - { name: "[FILL Name]", role: "Vice Principal, Curriculum" }
+      - { name: "[FILL Name]", role: "Vice Principal, Student Affairs" }
+      - { name: "[FILL Name]", role: "Islamic Programme Coordinator" }
+    teachers:
+      - { name: "[FILL Name]", role: "Grade 1 Homeroom" }
+      - { name: "[FILL Name]", role: "Grade 2 Homeroom" }
+      - { name: "[FILL Name]", role: "Grade 3 Homeroom" }
+      - { name: "[FILL Name]", role: "Grade 4 Homeroom" }
+      - { name: "[FILL Name]", role: "Grade 5 Homeroom" }
+      - { name: "[FILL Name]", role: "Grade 6 Homeroom" }
+      - { name: "[FILL Name]", role: "Tahfidz Teacher" }
+      - { name: "[FILL Name]", role: "Physical Education" }
+---
+{% import "components.njk" as ui %}
+{{ ui.pageBanner(c.eyebrow, c.banner, t.photo[lang] + ": guru bersama siswa") }}
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <h2>{{ c.introTitle }}</h2>
+      <p class="lead">{{ c.intro }}</p>
+    </div>
+    <h3>{{ c.leaderTitle }}</h3>
+    <div class="people-grid" style="margin-bottom:56px">
+      {% for p in c.leaders %}<div class="person">{{ ui.photo(t.photo[lang]) }}<h3>{{ p.name }}</h3><p>{{ p.role }}</p></div>{% endfor %}
+    </div>
+    <h3>{{ c.teacherTitle }}</h3>
+    <div class="people-grid">
+      {% for p in c.teachers %}<div class="person">{{ ui.photo(t.photo[lang]) }}<h3>{{ p.name }}</h3><p>{{ p.role }}</p></div>{% endfor %}
+    </div>
+  </div>
+</section>
+
+{% include "partials/prevnext.njk" %}
