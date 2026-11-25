@@ -2,6 +2,7 @@
 
 Bilingual (Indonesian / English) static website for SD Al Bayyinah, built with [Eleventy](https://www.11ty.dev/).
 Plan and reference study: `docs/reference-study-ais.md`.
+High-fidelity wireframe (Figma): https://www.figma.com/design/puqjRSCIMWiTlRwkLRBekK
 
 ## Run it
 
