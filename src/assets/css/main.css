@@ -243,7 +243,7 @@ p { margin: 0 0 1em; }
 /* ---------- News ---------- */
 .tabs { display: flex; gap: 20px; }
 .tab { background: none; border: 0; font: 500 1rem var(--font); color: var(--c-muted); cursor: pointer; padding: 6px 0; border-bottom: 2px solid transparent; }
-.tab[aria-selected="true"] { color: var(--c-teal); font-weight: 700; border-color: var(--c-gold); }
+.tab[aria-selected="true"] { color: var(--c-teal); font-weight: 700; }
 .news-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
 .news-card { text-decoration: none; color: inherit; }
 .news-card .ph { aspect-ratio: 340 / 282; margin-bottom: 16px; }
@@ -354,10 +354,66 @@ p { margin: 0 0 1em; }
 .prev-next .next { text-align: right; margin-left: auto; }
 
 /* ---------- WhatsApp float ---------- */
-.wa-float { position: fixed; right: 20px; bottom: 20px; z-index: 40; width: 56px; height: 56px; border-radius: 50%; background: #25d366; color: #fff; display: grid; place-items: center; box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+.wa-float { position: fixed; right: 20px; bottom: 20px; z-index: 40; width: 56px; height: 56px; border-radius: 50%; background: #25d366; color: #fff; display: grid; place-items: center; box-shadow: 0 8px 24px rgba(0,0,0,.2); transition: opacity .25s ease, transform .25s ease; }
 .wa-float svg { width: 30px; height: 30px; }
 
-/* ---------- Responsive ---------- */
+/* ---------- Micro-interactions ---------- */
+/* Anchor targets and focused fields land below the sticky header */
+[id], .field input, .field select, .field textarea { scroll-margin-top: calc(var(--header-h) + 24px); }
+
+/* Press + focus feedback */
+.btn { transition: background .2s, color .2s, border-color .2s, transform .12s ease; }
+.btn:active { transform: scale(.97); }
+:where(a, button, summary, input, select, textarea):focus-visible { outline: 3px solid var(--c-gold); outline-offset: 2px; border-radius: 6px; }
+.field input:focus-visible, .field select:focus-visible, .field textarea:focus-visible { outline-offset: 0; border-radius: 12px; }
+
+/* Links that point somewhere: arrow moves toward the destination */
+.text-link::after { transition: transform .2s ease; }
+.text-link:hover::after { transform: translateX(4px); }
+.portrait-card-label svg { transition: transform .2s ease; }
+.portrait-card:hover .portrait-card-label svg { transform: translateX(4px); }
+
+/* Tabs: one underline that slides to the selected tab */
+.tabs { position: relative; }
+.tab { border-bottom: 0; padding-bottom: 8px; }
+.tab-indicator { position: absolute; left: 0; bottom: 0; height: 2px; width: 0; background: var(--c-gold); border-radius: 2px; transition: transform .3s ease, width .3s ease; }
+
+/* FAQ: answer opens smoothly where the browser supports it */
+@supports (interpolate-size: allow-keywords) {
+  .faq { interpolate-size: allow-keywords; }
+  .faq-item::details-content { height: 0; overflow: hidden; transition: height .3s ease, content-visibility .3s allow-discrete; }
+  .faq-item[open]::details-content { height: auto; }
+}
+.faq-item summary { transition: color .2s; }
+.faq-item summary:hover { color: var(--c-gold-dark); }
+
+/* School day: the activity happening right now */
+.day li { transition: background .3s; }
+.day li.is-now { background: #fff8e6; margin: 0 -12px; padding-left: 12px; padding-right: 12px; border-radius: 10px; }
+.now-badge { display: inline-block; margin-left: 8px; padding: 2px 8px; border-radius: 999px; background: var(--c-gold); color: var(--c-dark); font-size: .75rem; font-weight: 600; vertical-align: 2px; }
+.now-badge::before { content: ""; display: inline-block; width: 6px; height: 6px; margin-right: 6px; border-radius: 50%; background: var(--c-dark); vertical-align: 1px; animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 50% { opacity: .25; } }
+
+/* Forms: per-field message, sending state, done panel */
+.field-msg { font-size: .8rem; color: #c0392b; font-weight: 400; }
+.field .is-valid { border-color: #3f9a6b; }
+.btn--wa[aria-busy="true"] { opacity: .75; pointer-events: none; }
+.wa-done { margin-top: 20px; padding: 18px 20px; border-radius: 14px; background: var(--c-mint); border-left: 4px solid #25d366; animation: rise .3s ease both; }
+.wa-done strong { display: block; color: var(--c-teal); margin-bottom: 4px; }
+.wa-done p { margin: 0 0 10px; color: var(--c-ink); }
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* Copy buttons */
+.copy-btn { margin-left: 6px; padding: 2px 10px; border: 1px solid var(--c-line); border-radius: 999px; background: #fff; font: 500 .78rem var(--font); color: var(--c-teal); cursor: pointer; transition: background .2s, color .2s, border-color .2s; }
+.copy-btn:hover { border-color: var(--c-gold); }
+.copy-btn.is-done { background: var(--c-teal); border-color: var(--c-teal); color: #fff; }
+
+/* Floating WhatsApp: hidden until the first screen is scrolled past */
+.wa-float.is-hidden { opacity: 0; transform: translateY(16px) scale(.9); pointer-events: none; }
+.wa-float::after { content: attr(aria-label); position: absolute; right: 66px; white-space: nowrap; background: var(--c-dark); color: #fff; font-size: .85rem; padding: 6px 12px; border-radius: 8px; opacity: 0; transform: translateX(6px); transition: opacity .2s, transform .2s; pointer-events: none; }
+@media (hover: hover) { .wa-float:hover::after { opacity: 1; transform: none; } }
+
+
 @media (max-width: 960px) {
   .split, .principal-inner, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
   .split--reverse .split-media { order: 0; }
@@ -382,7 +438,7 @@ p { margin: 0 0 1em; }
   .prev-next a { min-width: 0; }
   .page-banner { height: 280px; }
 }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; scroll-behavior: auto !important; } }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; scroll-behavior: auto !important; } }
 
 /* ---------- Text link (specific "read more" links) ---------- */
 .text-link { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; color: var(--c-teal); text-decoration: none; border-bottom: 2px solid var(--c-gold); padding-bottom: 2px; }

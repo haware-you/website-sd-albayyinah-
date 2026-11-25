@@ -47,8 +47,8 @@ copy:
       <div class="contact-card">
         <h2>{{ c.infoTitle }}</h2>
         <dl>
-          <dt>{{ c.labels.address }}</dt><dd>{{ site.address }}</dd>
-          <dt>{{ c.labels.wa }}</dt><dd><a href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">{{ site.whatsappDisplay }}</a></dd>
+          <dt>{{ c.labels.address }}</dt><dd>{{ site.address }} <button type="button" class="copy-btn" data-copy="{{ site.address }}">{{ t.copy[lang] }}</button></dd>
+          <dt>{{ c.labels.wa }}</dt><dd><a href="https://wa.me/{{ site.whatsapp }}" target="_blank" rel="noopener">{{ site.whatsappDisplay }}</a> <button type="button" class="copy-btn" data-copy="+{{ site.whatsapp }}">{{ t.copy[lang] }}</button></dd>
           <dt>{{ c.labels.email }}</dt><dd>{{ site.email }}</dd>
           <dt>{{ c.labels.hours }}</dt><dd>{{ site.officeHours[lang] }}</dd>
         </dl>

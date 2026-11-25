@@ -1,17 +1,44 @@
 {
-  "bookVisit": { "id": "Jadwalkan kunjungan", "en": "Book a visit" },
-  "applyNow": { "id": "Cara mendaftar", "en": "How to apply" },
-  "home": { "id": "Beranda", "en": "Home" },
-  "previous": { "id": "Sebelumnya", "en": "Previous" },
-  "next": { "id": "Berikutnya", "en": "Next" },
-  "menu": { "id": "Menu", "en": "Menu" },
-  "chatWa": { "id": "Tanya lewat WhatsApp", "en": "Ask on WhatsApp" },
-  "sendWa": { "id": "Kirim lewat WhatsApp", "en": "Send via WhatsApp" },
+  "bookVisit": {
+    "id": "Jadwalkan kunjungan",
+    "en": "Book a visit"
+  },
+  "applyNow": {
+    "id": "Cara mendaftar",
+    "en": "How to apply"
+  },
+  "home": {
+    "id": "Beranda",
+    "en": "Home"
+  },
+  "previous": {
+    "id": "Sebelumnya",
+    "en": "Previous"
+  },
+  "next": {
+    "id": "Berikutnya",
+    "en": "Next"
+  },
+  "menu": {
+    "id": "Menu",
+    "en": "Menu"
+  },
+  "chatWa": {
+    "id": "Tanya lewat WhatsApp",
+    "en": "Ask on WhatsApp"
+  },
+  "sendWa": {
+    "id": "Kirim lewat WhatsApp",
+    "en": "Send via WhatsApp"
+  },
   "waNote": {
     "id": "Tombol ini membuka WhatsApp dengan pesan yang sudah terisi. Pesan baru terkirim setelah Anda menekan Kirim di WhatsApp.",
     "en": "This button opens WhatsApp with your message filled in. It is only sent once you press Send in WhatsApp."
   },
-  "ctaTitle": { "id": "Lihat sekolahnya langsung", "en": "Come and see the school" },
+  "ctaTitle": {
+    "id": "Lihat sekolahnya langsung",
+    "en": "Come and see the school"
+  },
   "ctaText": {
     "id": "Kunjungan bisa [ISI hari], pukul [ISI jam]. Isi formulir singkat, admin kami membalas lewat WhatsApp untuk mengonfirmasi jadwal.",
     "en": "Visits run [FILL days], [FILL hours]. Fill in a short form and our admin will confirm the time on WhatsApp."
@@ -20,8 +47,24 @@
     "id": "SD Islam swasta di [ISI kota]. Kelas 1 sampai 6.",
     "en": "Private Islamic primary school in [FILL city]. Grades 1 to 6."
   },
-  "contactUs": { "id": "Kontak", "en": "Contact" },
-  "rights": { "id": "Hak cipta dilindungi.", "en": "All rights reserved." },
-  "photo": { "id": "Foto", "en": "Photo" },
-  "skip": { "id": "Lewati ke konten", "en": "Skip to content" }
+  "contactUs": {
+    "id": "Kontak",
+    "en": "Contact"
+  },
+  "rights": {
+    "id": "Hak cipta dilindungi.",
+    "en": "All rights reserved."
+  },
+  "photo": {
+    "id": "Foto",
+    "en": "Photo"
+  },
+  "skip": {
+    "id": "Lewati ke konten",
+    "en": "Skip to content"
+  },
+  "copy": {
+    "id": "Salin",
+    "en": "Copy"
+  }
 }

@@ -66,9 +66,9 @@
 
 {# A school day: time + what happens #}
 {% macro day(items) %}
-<ol class="day">
+<ol class="day" data-day>
   {% for d in items %}
-  <li><time>{{ d.time }}</time><div><strong>{{ d.title }}</strong>{% if d.text %}<p>{{ d.text }}</p>{% endif %}</div></li>
+  <li data-time="{{ d.time }}"><time>{{ d.time }}</time><div><strong>{{ d.title }}</strong>{% if d.text %}<p>{{ d.text }}</p>{% endif %}</div></li>
   {% endfor %}
 </ol>
 {% endmacro %}
@@ -132,7 +132,12 @@
     {% endfor %}
   </div>
   <p class="form-error" role="alert" hidden></p>
-  <button class="btn btn--gold btn--wa" type="submit">{{ submitLabel }}</button>
+  <button class="btn btn--gold btn--wa" type="submit" data-label="{{ submitLabel }}">{{ submitLabel }}</button>
   <p class="wa-form-note">{{ note }}</p>
+  <div class="wa-done" role="status" hidden>
+    <strong data-done-title></strong>
+    <p data-done-text></p>
+    <a class="text-link" data-done-link href="#" target="_blank" rel="noopener"></a>
+  </div>
 </form>
 {% endmacro %}
